@@ -1,11 +1,12 @@
-﻿<template>
+<template>
   <div>
     <Navbar />
     <Hero />
     <About />
+    <Experience />
     <Portfolio />
-    <Blog :posts="jsonPosts" />
     <Contacts />
+    <Footer />
   </div>
 </template>
 
@@ -13,15 +14,8 @@
 import Navbar from '~/components/Navbar.vue'
 import Hero from '~/components/Hero.vue'
 import About from '~/components/About.vue'
+import Experience from '~/components/Experience.vue'
 import Portfolio from '~/components/Portfolio.vue'
-import Blog from '~/components/Blog.vue'
 import Contacts from '~/components/Contacts.vue'
-
-// Fetch posts using @nuxt/content collection API
-const { data: posts, error } = await useAsyncData('blog-posts', () =>
-  queryCollection('blog').order('date', 'DESC').all()
-)
-
-// Ensure we pass a plain serializable array (no Proxy) to the Blog component
-const jsonPosts = JSON.parse(JSON.stringify(posts?.value || []))
+import Footer from '~/components/Footer.vue'
 </script>

@@ -1,104 +1,78 @@
-﻿<template>
+<template>
   <header
-    class="sticky top-0 z-40 backdrop-blur bg-black/50 border-b border-white/5"
+    class="sticky top-0 z-40 backdrop-blur border-b"
+    style="background: rgba(11,15,20,0.75); border-color: rgba(124,92,255,0.15)"
   >
-    <div class="max-w-6xl md:mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-14">
+        <!-- Brand -->
+        <a
+          :href="route.name === 'index' ? '#home' : '/'"
+          class="font-bold text-sm tracking-tight"
+          style="background: var(--brand); -webkit-background-clip: text; background-clip: text; color: transparent"
+        >
+          enunes.net
+        </a>
+
+        <!-- Desktop nav -->
         <nav
-          class="hidden md:flex items-center space-x-2"
+          class="hidden md:flex items-center space-x-1"
           aria-label="Main navigation"
         >
           <a
-            :href="route.name === 'index' ? '#home' : '/'"
-            class="text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >Home</a
+            v-for="link in links"
+            :key="link.id"
+            :href="(route.name === 'index' ? '#' : '/#') + link.id"
+            class="text-sm font-medium px-3 py-1.5 rounded-md transition-colors"
+            style="color: var(--muted)"
+            @mouseenter="(e) => e.target.style.color = 'var(--text)'"
+            @mouseleave="(e) => e.target.style.color = 'var(--muted)'"
           >
-          <a
-            :href="(route.name === 'index' ? '#' : '/#') + 'about'"
-            class="text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >About</a
-          >
-          <a
-            :href="(route.name === 'index' ? '#' : '/#') + 'portfolio'"
-            class="text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >Portfolio</a
-          >
-          <a
-            :href="(route.name === 'index' ? '#' : '/#') + 'blog'"
-            class="text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >Blog</a
-          >
-          <a
-            :href="(route.name === 'index' ? '#' : '/#') + 'contacts'"
-            class="text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >Contacts</a
-          >
+            {{ link.label }}
+          </a>
         </nav>
 
-        <div class="md:hidden">
-          <button
-            @click="open = !open"
-            :aria-expanded="open"
-            aria-label="Toggle menu"
-            class="p-2 rounded-md hover:bg-white/5"
+        <!-- Mobile menu button -->
+        <button
+          class="md:hidden p-2 rounded-md"
+          @click="open = !open"
+          :aria-expanded="open"
+          aria-label="Toggle menu"
+          style="color: var(--text)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
           >
-            <span class="sr-only">Open main menu</span>
-            <div class="w-6 h-5 flex flex-col justify-between">
-              <span
-                :class="[
-                  'block h-0.5 bg-current transition-transform',
-                  open ? 'rotate-45 translate-y-1.5' : '',
-                ]"
-              ></span>
-              <span
-                :class="[
-                  'block h-0.5 bg-current transition-opacity',
-                  open ? 'opacity-0' : '',
-                ]"
-              ></span>
-              <span
-                :class="[
-                  'block h-0.5 bg-current transition-transform',
-                  open ? '-rotate-45 -translate-y-3' : '',
-                ]"
-              ></span>
-            </div>
-          </button>
-        </div>
+            <path v-if="!open" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            <path v-else stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
     </div>
 
+    <!-- Mobile menu -->
     <transition name="fade">
       <div
         v-if="open"
-        class="md:hidden border-t border-white/5 bg-black/60 flex"
+        class="md:hidden border-t"
+        style="border-color: rgba(255,255,255,0.05); background: rgba(11,15,20,0.95)"
       >
-        <div class="px-4 py-3 space-y-1 w-full">
+        <div class="px-4 py-3 space-y-0.5">
           <a
-            :href="route.name === 'index' ? '#home' : '/'"
-            class="block text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >Home</a
+            v-for="link in links"
+            :key="link.id"
+            :href="(route.name === 'index' ? '#' : '/#') + link.id"
+            class="block text-sm font-medium px-3 py-2.5 rounded-md"
+            style="color: var(--muted)"
+            @click="open = false"
           >
-          <a
-            :href="(route.name === 'index' ? '#' : '/#') + 'about'"
-            class="block text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >About</a
-          >
-          <a
-            :href="(route.name === 'index' ? '#' : '/#') + 'portfolio'"
-            class="block text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >Portfolio</a
-          >
-          <a
-            :href="(route.name === 'index' ? '#' : '/#') + 'blog'"
-            class="block text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >Blog</a
-          >
-          <a
-            :href="(route.name === 'index' ? '#' : '/#') + 'contacts'"
-            class="block text-sm font-medium px-3 py-2 rounded-md hover:bg-white/5"
-            >Contacts</a
-          >
+            {{ link.label }}
+          </a>
         </div>
       </div>
     </transition>
@@ -106,11 +80,16 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 const open = ref(false)
 const route = useRoute()
 
-console.log(route.name)
+const links = [
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'portfolio', label: 'Projects' },
+  { id: 'contacts', label: 'Contact' },
+]
 </script>
 
 <style scoped>
