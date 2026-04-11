@@ -83,7 +83,7 @@
       <div class="flex flex-wrap gap-3">
         <a
           href="/cv-emerson-nunes.pdf"
-          download
+          download="cv-emerson-nunes.pdf"
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-white transition-all hover:scale-105 hover:shadow-lg"
           style="background: var(--accent1); box-shadow: 0 0 0 rgba(124,92,255,0)"
         >
