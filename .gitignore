@@ -9,3 +9,4 @@ dist/
 *.log
 .data/content/contents.sqlite
 /.data/content
+.env
