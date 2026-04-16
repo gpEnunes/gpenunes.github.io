@@ -31,6 +31,7 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#0b0f14' },
       ],
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'canonical', href: 'https://enunes.net/' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         {
