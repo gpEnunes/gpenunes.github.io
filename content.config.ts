@@ -23,8 +23,10 @@ export default defineContentConfig({
         title: z.string(),
         description: z.string(),
         date: z.string(),
+        image: z.string().optional(),
         readTime: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        category: z.string().optional(),
       }),
     }),
     music: defineCollection({

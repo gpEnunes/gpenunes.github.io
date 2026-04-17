@@ -2,7 +2,9 @@
 title: On building things that last
 description: Why I'd rather build one solid thing than ship ten half-finished ones.
 date: 2026-04-08
+image: https://images.unsplash.com/photo-1601321268954-22646044f7d0?w=1200&q=80
 readTime: 4 min read
+category: Craft
 tags: [Craft, Development]
 ---
 

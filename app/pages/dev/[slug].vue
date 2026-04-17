@@ -5,13 +5,19 @@
     </NuxtLink>
     <template v-if="post">
       <div class="mb-4 flex flex-wrap items-center gap-3">
+        <span class="text-xs px-3 py-1 rounded-full font-medium" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7)">Dev</span>
         <span class="text-xs" style="color: var(--muted)">{{ formatDate(post.date) }}</span>
         <span v-if="post.readTime" class="text-xs" style="color: var(--muted)">{{ post.readTime }}</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-semibold text-white mb-4">{{ post.title }}</h1>
-      <p class="text-lg mb-4" style="color: var(--muted)">{{ post.description }}</p>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-white mb-4 leading-tight">{{ post.title }}</h1>
+      <p class="text-lg mb-6" style="color: var(--muted)">{{ post.description }}</p>
       <div v-if="post.tags?.length" class="flex flex-wrap gap-1.5 mb-10">
-        <span v-for="tag in post.tags" :key="tag" class="px-2.5 py-0.5 rounded-full text-xs" style="background: rgba(255,255,255,0.06); color: var(--muted)">{{ tag }}</span>
+        <span
+          v-for="tag in post.tags"
+          :key="tag"
+          class="px-2.5 py-0.5 rounded-full text-xs"
+          style="background: rgba(255,255,255,0.06); color: var(--muted)"
+        >{{ tag }}</span>
       </div>
       <div class="prose prose-invert max-w-none">
         <ContentRenderer :value="post" />
