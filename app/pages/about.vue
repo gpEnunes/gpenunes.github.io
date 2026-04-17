@@ -47,7 +47,7 @@
     </blockquote>
 
     <!-- 3-col cards -->
-    <div class="grid sm:grid-cols-3 gap-4 mb-14">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14">
       <div
         v-for="card in cards"
         :key="card.title"
