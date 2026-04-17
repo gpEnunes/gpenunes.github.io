@@ -46,4 +46,8 @@ export default defineNuxtConfig({
   typescript: { shim: false },
   components: true,
   ssr: true,
+
+  studio: {
+    enabled: true,
+  },
 })
