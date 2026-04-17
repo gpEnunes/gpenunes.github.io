@@ -2,21 +2,10 @@
   <div>
     <!-- Hero -->
     <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center overflow-hidden px-4">
-      <!-- Faded 3D profile -->
-      <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-        <div style="transform: perspective(1000px) rotateY(-5deg)">
-          <img
-            src="/hero-profile.png"
-            alt=""
-            class="w-[280px] sm:w-[360px] md:w-[440px] object-cover object-top"
-            style="
-              opacity: 0.18;
-              mask-image: radial-gradient(ellipse 70% 80% at center, black 20%, transparent 80%);
-              -webkit-mask-image: radial-gradient(ellipse 70% 80% at center, black 20%, transparent 80%);
-            "
-          />
-        </div>
-      </div>
+      <!-- Animated canvas background -->
+      <ClientOnly>
+        <HeroCanvas />
+      </ClientOnly>
 
       <!-- Content -->
       <div class="relative z-10 max-w-4xl">
@@ -79,8 +68,8 @@
       <div class="grid sm:grid-cols-2 gap-5">
         <ContentCard
           v-for="post in latest"
-          :key="post._path"
-          :to="post._path"
+          :key="post.path"
+          :to="post.path"
           :title="post.title"
           :description="post.description"
           :date="formatDate(post.date)"
