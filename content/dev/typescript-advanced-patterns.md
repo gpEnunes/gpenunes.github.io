@@ -3,6 +3,7 @@ title: TypeScript patterns I wish I'd learned sooner
 description: The three TypeScript techniques that changed how I write Vue and Laravel API code.
 date: 2026-04-06
 readTime: 5 min read
+category: TypeScript
 tags: [TypeScript, Vue, Architecture]
 ---
 

@@ -14,6 +14,8 @@ export default defineContentConfig({
         time: z.string().optional(),
         servings: z.number().optional(),
         tags: z.array(z.string()).optional(),
+        ingredients: z.array(z.string()).optional(),
+        instructions: z.array(z.string()).optional(),
       }),
     }),
     writing: defineCollection({
@@ -50,6 +52,7 @@ export default defineContentConfig({
         description: z.string(),
         date: z.string(),
         readTime: z.string().optional(),
+        category: z.string().optional(),
         tags: z.array(z.string()).optional(),
       }),
     }),

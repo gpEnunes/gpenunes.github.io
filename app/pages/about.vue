@@ -74,7 +74,7 @@
 </template>
 
 <script setup>
-import { Code2, Music, PenLine, Download } from 'lucide-vue-next'
+import { Code2, Music, PenLine, ChefHat, Download } from 'lucide-vue-next'
 
 useSeoMeta({
   title: 'About — Emerson Nunes',
@@ -89,14 +89,19 @@ const cards = [
     body: 'Laravel APIs, Vue/Nuxt frontends, event-driven systems. 5+ years shipping production code across Europe.',
   },
   {
-    title: 'Musician',
+    title: 'Music Enthusiast',
     icon: Music,
-    body: 'Rock music runs in the blood. Led Zeppelin is correct. Everything else is debatable.',
+    body: 'Rock music is a religion. Led Zeppelin, Arctic Monkeys, Radiohead. Vinyl when possible.',
   },
   {
     title: 'Creator',
     icon: PenLine,
-    body: 'Cooking, writing and building things that last. Occasionally all three at the same time.',
+    body: 'Writing, building things that last. Ideas that sit in drafts for weeks before they\'re ready.',
+  },
+  {
+    title: 'Cook',
+    icon: ChefHat,
+    body: 'Late night ramen, pasta from scratch, slow weekend curries. Cooking is how I decompress.',
   },
 ]
 </script>

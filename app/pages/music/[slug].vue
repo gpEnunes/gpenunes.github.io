@@ -1,33 +1,95 @@
 <template>
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-20">
-    <NuxtLink to="/music" class="inline-flex items-center gap-1.5 text-sm mb-10 transition-colors hover:text-white" style="color: var(--muted)">
-      <ArrowLeft :size="15" /> Back to Music
-    </NuxtLink>
-    <template v-if="post">
-      <div class="mb-4 flex flex-wrap items-center gap-3">
-        <span v-if="post.genre" class="text-xs px-2 py-0.5 rounded-full" style="background: rgba(255,255,255,0.06); color: var(--muted)">{{ post.genre }}</span>
-        <span class="text-xs" style="color: var(--muted)">{{ formatDate(post.date) }}</span>
-      </div>
-      <h1 class="text-3xl sm:text-4xl font-semibold text-white mb-2">{{ post.title }}</h1>
-      <p v-if="post.artist" class="text-lg mb-4" style="color: var(--muted)">{{ post.artist }}</p>
-      <div v-if="post.image" class="rounded-xl overflow-hidden mb-10 max-w-sm">
-        <img :src="post.image" :alt="post.title" class="w-full h-full object-cover" />
-      </div>
-      <div class="prose prose-invert max-w-none">
-        <ContentRenderer :value="post" />
-      </div>
-    </template>
+  <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <div class="max-w-3xl mx-auto">
+
+      <NuxtLink to="/music" class="inline-flex items-center gap-2 text-sm mb-6 sm:mb-8 transition-colors hover:text-white" style="color: rgba(255,255,255,0.6)">
+        <ArrowLeft :size="16" /> Back to Music
+      </NuxtLink>
+
+      <template v-if="post">
+        <!-- Header -->
+        <div class="mb-8 sm:mb-12">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+            <span v-if="post.genre" class="px-3 py-1 rounded-full text-xs sm:text-sm" style="background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6)">
+              {{ post.genre }}
+            </span>
+            <span class="text-xs sm:text-sm" style="color: rgba(255,255,255,0.4)">{{ formatDate(post.date) }}</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-4 sm:mb-6 leading-tight">{{ post.title }}</h1>
+          <p v-if="post.artist" class="text-lg font-medium mb-3" style="color: rgba(255,255,255,0.5)">{{ post.artist }}</p>
+          <p class="text-lg sm:text-xl" style="color: rgba(255,255,255,0.7)">{{ post.description }}</p>
+        </div>
+
+        <!-- Album image -->
+        <div v-if="post.image" class="rounded-xl overflow-hidden mb-12 max-w-sm">
+          <img :src="post.image" :alt="post.title" class="w-full h-full object-cover" />
+        </div>
+
+        <!-- Tags + divider -->
+        <div class="flex flex-wrap gap-2 mb-12 pb-12" style="border-bottom: 1px solid rgba(255,255,255,0.1)">
+          <span
+            v-for="tag in post.tags"
+            :key="tag"
+            class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm"
+            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6)"
+          >
+            <Tag :size="12" /> {{ tag }}
+          </span>
+        </div>
+
+        <!-- Content -->
+        <article class="prose prose-invert max-w-none mb-16 prose-p:text-lg prose-p:text-white/80 prose-p:leading-relaxed prose-headings:text-white prose-strong:text-white">
+          <ContentRenderer :value="post" />
+        </article>
+
+        <!-- More Music Posts -->
+        <section v-if="morePosts?.length" class="pt-12" style="border-top: 1px solid rgba(255,255,255,0.1)">
+          <h2 class="text-2xl font-semibold text-white mb-6">More Music Posts</h2>
+          <div class="space-y-4">
+            <NuxtLink
+              v-for="other in morePosts"
+              :key="other.path"
+              :to="other.path"
+              class="group block p-6 rounded-xl transition-all hover:border-white/20"
+              style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1)"
+            >
+              <div class="flex items-center gap-3 mb-2">
+                <span v-if="other.genre" class="text-sm" style="color: rgba(255,255,255,0.4)">{{ other.genre }}</span>
+                <span v-if="other.genre" style="color: rgba(255,255,255,0.2)">•</span>
+                <span class="text-sm" style="color: rgba(255,255,255,0.4)">{{ formatDate(other.date) }}</span>
+              </div>
+              <h3 class="text-xl font-medium text-white mb-2 group-hover:text-white/80 transition-colors">{{ other.title }}</h3>
+              <p class="text-sm" style="color: rgba(255,255,255,0.6)">{{ other.description }}</p>
+            </NuxtLink>
+          </div>
+        </section>
+      </template>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ArrowLeft } from 'lucide-vue-next'
+import { ArrowLeft, Tag } from 'lucide-vue-next'
+
 const route = useRoute()
-const { data: post } = await useAsyncData(`music-${route.params.slug}`, () =>
-  queryCollection('music').path(`/music/${route.params.slug}`).first()
-)
+
+const [{ data: post }, { data: allPosts }] = await Promise.all([
+  useAsyncData(`music-${route.params.slug}`, () =>
+    queryCollection('music').path(`/music/${route.params.slug}`).first()
+  ),
+  useAsyncData('music-all', () =>
+    queryCollection('music').order('date', 'DESC').all()
+  ),
+])
+
 if (!post.value) throw createError({ statusCode: 404, statusMessage: 'Post not found' })
+
+const morePosts = computed(() =>
+  allPosts.value?.filter(p => p.path !== post.value.path).slice(0, 3) ?? []
+)
+
 useSeoMeta({ title: `${post.value.title} — Music`, description: post.value.description })
+
 function formatDate(d) {
   return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
 }
