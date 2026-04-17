@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-29',
   future: { compatibilityVersion: 4 },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxthq/studio'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
 
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || '',
@@ -46,8 +46,4 @@ export default defineNuxtConfig({
   typescript: { shim: false },
   components: true,
   ssr: true,
-
-  studio: {
-    enabled: true,
-  },
 })
