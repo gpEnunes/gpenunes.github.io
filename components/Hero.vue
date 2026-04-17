@@ -76,7 +76,7 @@
 
       <!-- Tagline -->
       <p class="text-base text-gray-400 max-w-2xl mb-10">
-        Building scalable web applications and marketing automation tools.
+        Building scalable Laravel APIs, Vue.js &amp; Nuxt.js frontends, and marketing automation systems for European companies.
       </p>
 
       <!-- CTAs -->

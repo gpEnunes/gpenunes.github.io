@@ -44,7 +44,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Emerson Nunes | Full-Stack Developer — Laravel, Nuxt & TypeScript',
   twitterDescription:
-    'Fullstack Developer (Laravel, Vue.js, Nuxt.js) based in Portugal. Open to relocation within Europe.',
+    'Fullstack Developer with 5+ years in Laravel, Vue.js and Nuxt.js. Specialised in marketing automation and B2B applications. Based in Portugal, open to relocation within Europe.',
 })
 
 // ── JSON-LD Person schema ─────────────────────────────────────────────────────
@@ -56,27 +56,35 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Emerson Nunes',
-        jobTitle: 'Fullstack Developer',
+        jobTitle: 'Full-Stack Developer',
+        description: 'Full-Stack Developer with 5+ years of experience building Laravel APIs, Vue.js and Nuxt.js frontends, and marketing automation systems. Based in Portugal, open to relocation across Europe.',
+        image: 'https://enunes.net/og-image.png',
         url: 'https://enunes.net',
         email: 'emersonunes500@gmail.com',
         sameAs: [
-          'https://linkedin.com/in/emerson-nunes5',
+          'https://www.linkedin.com/in/emerson-nunes5',
           'https://github.com/gpEnunes',
         ],
         knowsAbout: [
-          'Laravel',
-          'PHP',
-          'Vue.js',
-          'Nuxt.js',
-          'JavaScript',
-          'TypeScript',
-          'MySQL',
-          'REST APIs',
-          'Marketing Automation',
+          'Laravel', 'PHP', 'Vue.js', 'Nuxt.js', 'JavaScript', 'TypeScript',
+          'MySQL', 'REST APIs', 'Marketing Automation', 'Event-Driven Architecture',
+          'Redis', 'WebSockets', 'CRM Integrations', 'B2B Applications',
+          'Unit Testing', 'CI/CD', 'Agile',
         ],
         address: {
           '@type': 'PostalAddress',
           addressCountry: 'PT',
+          addressRegion: 'Portugal',
+        },
+        hasOccupation: {
+          '@type': 'Occupation',
+          name: 'Full-Stack Developer',
+          description: 'Builds scalable web applications and marketing automation platforms using Laravel, Vue.js, Nuxt.js and TypeScript.',
+          skills: 'Laravel, PHP, Vue.js, Nuxt.js, TypeScript, MySQL, REST APIs, Redis, Marketing Automation',
+          occupationLocation: {
+            '@type': 'Country',
+            name: 'Portugal',
+          },
         },
       }),
     },

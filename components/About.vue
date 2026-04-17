@@ -61,7 +61,7 @@ const stacks = [
   {
     label: 'Frontend',
     icon: '🖥️',
-    items: ['Vue.js', 'Nuxt.js', 'JavaScript', 'SCSS', 'HTML5 / CSS3'],
+    items: ['Vue.js', 'Nuxt.js', 'JavaScript', 'TypeScript', 'SCSS', 'HTML5 / CSS3'],
   },
   {
     label: 'DevOps',
