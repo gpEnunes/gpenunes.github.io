@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
 
   runtimeConfig: {
+    resendApiKey: process.env.RESEND_API_KEY || '',
     public: {
       gaId: process.env.NUXT_PUBLIC_GA_ID || '',
     },
