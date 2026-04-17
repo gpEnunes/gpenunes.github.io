@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      titleTemplate: '%s — Emerson Nunes',
+      titleTemplate: '%s',
       meta: [
         { name: 'author', content: 'Emerson Nunes' },
         { name: 'robots', content: 'index, follow' },
