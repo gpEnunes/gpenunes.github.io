@@ -9,8 +9,8 @@
     <div v-if="posts?.length" class="grid sm:grid-cols-2 gap-5">
       <NuxtLink
         v-for="post in posts"
-        :key="post._path"
-        :to="post._path"
+        :key="post.path"
+        :to="post.path"
         class="group block rounded-2xl border overflow-hidden transition-all hover:border-white/20"
         style="border-color: var(--border); background: var(--card)"
       >

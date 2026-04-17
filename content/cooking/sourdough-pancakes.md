@@ -1,6 +1,6 @@
 ---
 title: Sourdough Pancakes
-description: What to do with sourdough discard: make the best pancakes of your life.
+description: "What to do with sourdough discard: make the best pancakes of your life."
 date: 2026-03-22
 image: https://images.unsplash.com/photo-1655890193532-3f51318b23c0?w=800&q=80
 time: 25 min

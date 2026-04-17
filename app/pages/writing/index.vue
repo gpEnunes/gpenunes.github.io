@@ -9,7 +9,7 @@
     <template v-if="posts?.length">
       <!-- Featured post -->
       <NuxtLink
-        :to="featured._path"
+        :to="featured.path"
         class="group relative block rounded-2xl overflow-hidden mb-10 transition-all"
       >
         <div class="aspect-[21/9] overflow-hidden">
@@ -36,8 +36,8 @@
       <div v-if="rest.length" class="space-y-px rounded-2xl overflow-hidden border" style="border-color: var(--border)">
         <NuxtLink
           v-for="post in rest"
-          :key="post._path"
-          :to="post._path"
+          :key="post.path"
+          :to="post.path"
           class="group flex items-start gap-5 p-5 transition-all hover:bg-white/5"
           style="background: var(--card)"
         >

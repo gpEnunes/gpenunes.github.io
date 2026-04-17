@@ -22,11 +22,11 @@
       <div class="absolute left-0 top-2 bottom-2 w-px" style="background: rgba(255,255,255,0.1)"></div>
 
       <div class="space-y-10 pl-8">
-        <div v-for="post in posts" :key="post._path" class="relative">
+        <div v-for="post in posts" :key="post.path" class="relative">
           <!-- Timeline dot -->
           <div class="absolute -left-8 top-1.5 w-2 h-2 rounded-full border" style="border-color: rgba(255,255,255,0.3); background: var(--background)"></div>
 
-          <NuxtLink :to="post._path" class="group block">
+          <NuxtLink :to="post.path" class="group block">
             <span class="text-xs mb-2 block" style="color: var(--muted)">{{ formatDate(post.date) }}</span>
             <h2 class="text-lg font-semibold text-white mb-2 group-hover:text-white/80 transition-colors">{{ post.title }}</h2>
             <p class="leading-relaxed mb-3 line-clamp-3" style="color: var(--muted)">{{ post.description }}</p>

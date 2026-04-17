@@ -25,7 +25,7 @@
       <template v-if="posts?.length">
         <!-- Featured post -->
         <NuxtLink
-          :to="featuredPost._path"
+          :to="featuredPost.path"
           class="group relative block rounded-2xl overflow-hidden mb-10"
         >
           <div class="aspect-[21/9] overflow-hidden">
@@ -60,7 +60,7 @@
               class="flex items-center gap-3 p-3.5 rounded-xl border"
               style="border-color: var(--border); background: var(--card)"
             >
-              <span class="text-xl">{{ tool.emoji }}</span>
+              <img :src="`https://cdn.simpleicons.org/${tool.icon}/${tool.color}`" :alt="tool.name" class="w-6 h-6 shrink-0" />
               <div>
                 <p class="text-sm font-medium text-white">{{ tool.name }}</p>
                 <p class="text-xs" style="color: var(--muted)">{{ tool.type }}</p>
@@ -75,8 +75,8 @@
           <div class="space-y-px rounded-2xl overflow-hidden border" style="border-color: var(--border)">
             <NuxtLink
               v-for="post in otherPosts"
-              :key="post._path"
-              :to="post._path"
+              :key="post.path"
+              :to="post.path"
               class="group flex items-start gap-5 p-5 transition-all hover:bg-white/5"
               style="background: var(--card)"
             >
@@ -136,14 +136,14 @@ const featuredPost = computed(() => posts.value?.[0])
 const otherPosts = computed(() => posts.value?.slice(1) ?? [])
 
 const stack = [
-  { emoji: '🐘', name: 'Laravel',   type: 'Backend' },
-  { emoji: '💚', name: 'Vue.js',    type: 'Frontend' },
-  { emoji: '⚡', name: 'Nuxt',      type: 'Framework' },
-  { emoji: '🔵', name: 'TypeScript',type: 'Language' },
-  { emoji: '🐬', name: 'MySQL',     type: 'Database' },
-  { emoji: '🔴', name: 'Redis',     type: 'Cache' },
-  { emoji: '🚂', name: 'Railway',   type: 'DevOps' },
-  { emoji: '▲',  name: 'Vercel',    type: 'Hosting' },
+  { icon: 'laravel',    color: 'FF2D20', name: 'Laravel',    type: 'Backend'   },
+  { icon: 'vuedotjs',   color: '4FC08D', name: 'Vue.js',     type: 'Frontend'  },
+  { icon: 'nuxt',       color: '00DC82', name: 'Nuxt',       type: 'Framework' },
+  { icon: 'typescript', color: '3178C6', name: 'TypeScript', type: 'Language'  },
+  { icon: 'mysql',      color: '4479A1', name: 'MySQL',      type: 'Database'  },
+  { icon: 'redis',      color: 'DC382D', name: 'Redis',      type: 'Cache'     },
+  { icon: 'railway',    color: 'ffffff', name: 'Railway',    type: 'DevOps'    },
+  { icon: 'vercel',     color: 'ffffff', name: 'Vercel',     type: 'Hosting'   },
 ]
 
 const projects = [
