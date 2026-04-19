@@ -61,9 +61,6 @@
     <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
       <div class="flex items-center justify-between mb-8">
         <h2 class="text-3xl font-medium">Latest</h2>
-        <NuxtLink to="/thoughts" class="text-sm text-white/50 hover:text-white transition-colors flex items-center gap-1.5">
-          View all <ArrowRight :size="14" />
-        </NuxtLink>
       </div>
       <div class="grid sm:grid-cols-2 gap-5">
         <ContentCard
@@ -82,7 +79,7 @@
 </template>
 
 <script setup>
-import { ArrowRight, Music, Coffee, Pen, Code, Heart } from 'lucide-vue-next'
+import { ArrowRight, Music, Coffee, Pen, Code } from 'lucide-vue-next'
 
 useSeoMeta({
   title: 'Emerson Nunes | Full-Stack Developer — Laravel, Nuxt & TypeScript',
@@ -119,16 +116,15 @@ const categories = [
   { title: 'Cooking',       description: 'Experiments in the kitchen',      path: '/cooking',  icon: Coffee, image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80' },
   { title: 'Writing',       description: 'Thoughts put into words',          path: '/writing',  icon: Pen,    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80' },
   { title: 'Dev Life',      description: 'Code, coffee, repeat',             path: '/dev',      icon: Code,   image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80' },
-  { title: 'Daily Thoughts',description: 'Life as it happens',               path: '/thoughts', icon: Heart,  image: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=800&q=80' },
 ]
 
 const { data: cookingPosts }  = await useAsyncData('home-cooking',  () => queryCollection('cooking').order('date', 'DESC').limit(1).all())
-const { data: thoughtsPosts } = await useAsyncData('home-thoughts', () => queryCollection('thoughts').order('date', 'DESC').limit(1).all())
+const { data: writingPosts }  = await useAsyncData('home-writing',  () => queryCollection('writing').order('date', 'DESC').limit(1).all())
 
 const latest = computed(() => {
   const items = [
-    ...(cookingPosts.value  || []).map(p => ({ ...p, _section: 'Cooking' })),
-    ...(thoughtsPosts.value || []).map(p => ({ ...p, _section: 'Thoughts' })),
+    ...(cookingPosts.value || []).map(p => ({ ...p, _section: 'Cooking' })),
+    ...(writingPosts.value || []).map(p => ({ ...p, _section: 'Writing' })),
   ]
   return items.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2)
 })

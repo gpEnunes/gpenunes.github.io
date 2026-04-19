@@ -24,7 +24,6 @@ const links = [
   { to: '/admin/cooking', label: 'Cooking' },
   { to: '/admin/writing', label: 'Writing' },
   { to: '/admin/dev', label: 'Dev' },
-  { to: '/admin/thoughts', label: 'Thoughts' },
   { to: '/admin/music', label: 'Music' },
 ]
 </script>

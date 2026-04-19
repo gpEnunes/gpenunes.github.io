@@ -58,7 +58,7 @@
 </template>
 
 <script setup>
-import { Menu, X, Home, User, Coffee, Pen, Music, Code, Heart } from 'lucide-vue-next'
+import { Menu, X, Home, User, Coffee, Pen, Music, Code } from 'lucide-vue-next'
 
 const open = ref(false)
 
@@ -69,7 +69,6 @@ const nav = [
   { to: '/writing',  label: 'Writing',  icon: Pen },
   { to: '/music',    label: 'Music',    icon: Music },
   { to: '/dev',      label: 'Dev',      icon: Code },
-  { to: '/thoughts', label: 'Thoughts', icon: Heart },
 ]
 </script>
 
