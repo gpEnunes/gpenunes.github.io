@@ -1,7 +1,8 @@
 <template>
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: rgba(255,255,255,0.3)">Admin</p>
-    <h1 class="text-3xl font-bold text-white mb-10">Music Shelf</h1>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-2xl font-bold text-white">Music</h1>
+    </div>
 
     <!-- Add album form -->
     <div class="rounded-2xl border p-6 mb-10" style="border-color: var(--border); background: var(--card)">
@@ -116,10 +117,7 @@
 <script setup>
 import { Trash2 } from 'lucide-vue-next'
 
-if (import.meta.server && process.env.NODE_ENV === 'production') {
-  throw createError({ statusCode: 404 })
-}
-
+definePageMeta({ layout: 'admin', middleware: 'admin' })
 useSeoMeta({ title: 'Music Admin' })
 
 const { data, refresh } = await useAsyncData('admin-music-albums', () => $fetch('/api/music/albums'))
