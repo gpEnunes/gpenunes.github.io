@@ -7,6 +7,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || '',
+    spotifyClientId: process.env.SPOTIFY_CLIENT_ID || '',
+    spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET || '',
     public: {
       gaId: process.env.NUXT_PUBLIC_GA_ID || '',
     },

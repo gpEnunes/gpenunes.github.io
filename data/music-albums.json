@@ -1,0 +1,11 @@
+{
+  "shelves": [
+    { "id": "deep-focus", "label": "Deep Focus", "albums": [] },
+    { "id": "late-night", "label": "Late Night", "albums": [] },
+    { "id": "drive", "label": "Drive", "albums": [] },
+    { "id": "rage", "label": "Rage", "albums": [] },
+    { "id": "melancholy", "label": "Melancholy", "albums": [] },
+    { "id": "party", "label": "Party", "albums": [] },
+    { "id": "classics", "label": "Classics", "albums": [] }
+  ]
+}
