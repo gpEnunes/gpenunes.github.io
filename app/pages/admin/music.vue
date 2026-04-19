@@ -24,13 +24,33 @@
         <div class="flex gap-3">
           <div class="flex-1">
             <label class="block text-xs mb-1.5" style="color: var(--muted)">Shelf</label>
-            <select
-              v-model="form.shelf"
-              class="w-full rounded-xl px-4 py-3 text-sm text-white outline-none focus:ring-1 focus:ring-white/20"
-              style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); color-scheme: dark"
-            >
-              <option v-for="shelf in shelves" :key="shelf.id" :value="shelf.id">{{ shelf.label }}</option>
-            </select>
+            <div class="relative" ref="shelfDropdown">
+              <button
+                type="button"
+                @click="shelfOpen = !shelfOpen"
+                class="w-full flex items-center justify-between rounded-xl px-4 py-3 text-sm text-white outline-none"
+                style="background: rgba(255,255,255,0.05); border: 1px solid var(--border)"
+              >
+                <span>{{ shelves.find(s => s.id === form.shelf)?.label ?? 'Select shelf' }}</span>
+                <ChevronDown :size="14" class="shrink-0 ml-2 transition-transform" :class="shelfOpen ? 'rotate-180' : ''" style="color: var(--muted)" />
+              </button>
+              <div
+                v-if="shelfOpen"
+                class="absolute z-20 left-0 right-0 mt-1 rounded-xl overflow-hidden border shadow-xl"
+                style="background: #1a1a1a; border-color: var(--border)"
+              >
+                <button
+                  v-for="shelf in shelves"
+                  :key="shelf.id"
+                  type="button"
+                  @click="form.shelf = shelf.id; shelfOpen = false"
+                  class="w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-white/10"
+                  :class="form.shelf === shelf.id ? 'text-white font-medium' : 'text-white/60'"
+                >
+                  {{ shelf.label }}
+                </button>
+              </div>
+            </div>
           </div>
           <div class="flex items-end">
             <button
@@ -115,7 +135,7 @@
 </template>
 
 <script setup>
-import { Trash2 } from 'lucide-vue-next'
+import { Trash2, ChevronDown } from 'lucide-vue-next'
 
 definePageMeta({ layout: 'admin', middleware: 'admin' })
 useSeoMeta({ title: 'Music Admin' })
@@ -124,6 +144,16 @@ const { data, refresh } = await useAsyncData('admin-music-albums', () => $fetch(
 const shelves = computed(() => data.value?.shelves ?? [])
 
 const form = reactive({ spotifyInput: '', shelf: shelves.value[0]?.id ?? '', note: '' })
+const shelfOpen = ref(false)
+const shelfDropdown = ref(null)
+
+onMounted(() => {
+  document.addEventListener('click', (e) => {
+    if (shelfDropdown.value && !shelfDropdown.value.contains(e.target)) {
+      shelfOpen.value = false
+    }
+  })
+})
 const preview = ref(null)
 const fetching = ref(false)
 const saving = ref(false)
