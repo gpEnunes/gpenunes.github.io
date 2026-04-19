@@ -1,4 +1,4 @@
-import { assertType, assertSlug, readEntry } from '~/server/utils/markdown'
+import { assertType, assertSlug, readEntry } from '../../../utils/markdown'
 
 export default defineEventHandler((event) => {
   const type = getRouterParam(event, 'type')!

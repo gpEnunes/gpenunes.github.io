@@ -1,4 +1,4 @@
-import { assertType, listEntries } from '~/server/utils/markdown'
+import { assertType, listEntries } from '../../../utils/markdown'
 
 export default defineEventHandler((event) => {
   const type = getRouterParam(event, 'type')!

@@ -1,4 +1,4 @@
-import { assertType, slugify, writeEntry, listEntries } from '~/server/utils/markdown'
+import { assertType, slugify, writeEntry } from '../../../utils/markdown'
 import { join } from 'path'
 import { existsSync } from 'fs'
 
