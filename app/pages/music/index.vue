@@ -86,7 +86,18 @@
 <script setup>
 import { X } from 'lucide-vue-next'
 
-useSeoMeta({ title: 'Music — Emerson Nunes', description: 'Albums that matter, for every state of mind.' })
+useSeoMeta({
+  title: 'Music — Emerson Nunes',
+  description: 'Albums that matter, for every state of mind. Curated shelves of metal, rock and everything in between.',
+  ogTitle: 'Music — Emerson Nunes',
+  ogDescription: 'Albums that matter, for every state of mind. Curated shelves of metal, rock and everything in between.',
+  ogImage: 'https://enunes.net/og-image.png',
+  ogUrl: 'https://enunes.net/music',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://enunes.net/og-image.png',
+})
+useHead({ link: [{ rel: 'canonical', href: 'https://enunes.net/music' }] })
 
 const { data } = await useAsyncData('music-albums', () => $fetch('/api/music/albums'))
 

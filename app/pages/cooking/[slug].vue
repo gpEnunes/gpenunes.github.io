@@ -121,7 +121,33 @@ const otherRecipes = computed(() =>
   allRecipes.value?.filter(r => r.path !== post.value.path).slice(0, 2) ?? []
 )
 
-useSeoMeta({ title: `${post.value.title} — Cooking`, description: post.value.description })
+const canonicalUrl = `https://enunes.net${post.value.path}`
+useSeoMeta({
+  title: `${post.value.title} — Cooking`,
+  description: post.value.description,
+  ogTitle: `${post.value.title} — Cooking`,
+  ogDescription: post.value.description,
+  ogImage: post.value.image || 'https://enunes.net/og-image.png',
+  ogUrl: canonicalUrl,
+  ogType: 'article',
+  twitterCard: 'summary_large_image',
+  twitterImage: post.value.image || 'https://enunes.net/og-image.png',
+})
+useHead({
+  link: [{ rel: 'canonical', href: canonicalUrl }],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Recipe',
+      name: post.value.title,
+      description: post.value.description,
+      datePublished: post.value.date,
+      author: { '@type': 'Person', name: 'Emerson Nunes', url: 'https://enunes.net' },
+      url: canonicalUrl,
+    }),
+  }],
+})
 
 function formatDate(d) {
   return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })

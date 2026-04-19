@@ -117,8 +117,16 @@ import { FileText, Briefcase, ArrowRight } from 'lucide-vue-next'
 
 useSeoMeta({
   title: 'Dev — Emerson Nunes',
-  description: 'Dev posts and open source projects by Emerson Nunes.',
+  description: 'Dev posts, open source projects and code experiments by Emerson Nunes. Laravel, Nuxt, TypeScript and more.',
+  ogTitle: 'Dev — Emerson Nunes',
+  ogDescription: 'Dev posts, open source projects and code experiments by Emerson Nunes. Laravel, Nuxt, TypeScript and more.',
+  ogImage: 'https://enunes.net/og-image.png',
+  ogUrl: 'https://enunes.net/dev',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://enunes.net/og-image.png',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://enunes.net/dev' }] })
 
 const activeTab = ref('posts')
 const activeProject = ref(null)

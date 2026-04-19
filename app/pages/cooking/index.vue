@@ -57,7 +57,18 @@
 <script setup>
 import { Clock, Users } from 'lucide-vue-next'
 
-useSeoMeta({ title: 'Cooking — Emerson Nunes', description: 'Recipes and kitchen experiments.' })
+useSeoMeta({
+  title: 'Cooking — Emerson Nunes',
+  description: 'Recipes and kitchen experiments from Emerson Nunes.',
+  ogTitle: 'Cooking — Emerson Nunes',
+  ogDescription: 'Recipes and kitchen experiments from Emerson Nunes.',
+  ogImage: 'https://enunes.net/og-image.png',
+  ogUrl: 'https://enunes.net/cooking',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://enunes.net/og-image.png',
+})
+useHead({ link: [{ rel: 'canonical', href: 'https://enunes.net/cooking' }] })
 
 const { data: posts } = await useAsyncData('cooking', () =>
   queryCollection('cooking').order('date', 'DESC').all()

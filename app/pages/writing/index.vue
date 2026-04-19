@@ -64,7 +64,18 @@
 <script setup>
 import { ArrowRight } from 'lucide-vue-next'
 
-useSeoMeta({ title: 'Writing — Emerson Nunes', description: 'Essays and notes.' })
+useSeoMeta({
+  title: 'Writing — Emerson Nunes',
+  description: 'Essays, notes and things worth putting into words. Ideas about code, life and everything in between.',
+  ogTitle: 'Writing — Emerson Nunes',
+  ogDescription: 'Essays, notes and things worth putting into words. Ideas about code, life and everything in between.',
+  ogImage: 'https://enunes.net/og-image.png',
+  ogUrl: 'https://enunes.net/writing',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://enunes.net/og-image.png',
+})
+useHead({ link: [{ rel: 'canonical', href: 'https://enunes.net/writing' }] })
 
 const { data: posts } = await useAsyncData('writing', () =>
   queryCollection('writing').order('date', 'DESC').all()

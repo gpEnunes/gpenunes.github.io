@@ -88,7 +88,19 @@ const morePosts = computed(() =>
   allPosts.value?.filter(p => p.path !== post.value.path).slice(0, 3) ?? []
 )
 
-useSeoMeta({ title: `${post.value.title} — Music`, description: post.value.description })
+const canonicalUrl = `https://enunes.net${post.value.path}`
+useSeoMeta({
+  title: `${post.value.title} — Music`,
+  description: post.value.description,
+  ogTitle: `${post.value.title} — Music`,
+  ogDescription: post.value.description,
+  ogImage: post.value.image || 'https://enunes.net/og-image.png',
+  ogUrl: canonicalUrl,
+  ogType: 'article',
+  twitterCard: 'summary_large_image',
+  twitterImage: post.value.image || 'https://enunes.net/og-image.png',
+})
+useHead({ link: [{ rel: 'canonical', href: canonicalUrl }] })
 
 function formatDate(d) {
   return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
