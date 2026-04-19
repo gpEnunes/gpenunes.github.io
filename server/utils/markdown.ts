@@ -83,8 +83,10 @@ function serializeYaml(meta: Record<string, any>): string {
       }
       if (typeof v === 'number') return `${k}: ${v}`
       if (typeof v === 'boolean') return `${k}: ${v}`
+      if (typeof v === 'object') return null
       return `${k}: ${v}`
     })
+    .filter(Boolean)
     .join('\n')
 }
 
@@ -119,7 +121,9 @@ export function readEntry(type: string, slug: string) {
 
 export function writeEntry(type: string, slug: string, meta: Record<string, any>, body: string) {
   const path = join(CONTENT_DIR, type, `${slug}.md`)
-  writeFileSync(path, `---\n${serializeYaml(meta)}\n---\n\n${body}\n`)
+  // JSON round-trip strips Vue reactive proxies and any non-serializable values
+  const cleanMeta = JSON.parse(JSON.stringify(meta))
+  writeFileSync(path, `---\n${serializeYaml(cleanMeta)}\n---\n\n${body}\n`)
 }
 
 export function deleteEntry(type: string, slug: string) {
