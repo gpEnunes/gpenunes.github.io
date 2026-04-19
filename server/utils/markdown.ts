@@ -84,7 +84,8 @@ function serializeYaml(meta: Record<string, any>): string {
       if (typeof v === 'number') return `${k}: ${v}`
       if (typeof v === 'boolean') return `${k}: ${v}`
       if (typeof v === 'object') return null
-      return `${k}: ${v}`
+      const needsQuotes = String(v).includes(': ') || String(v).includes('#') || String(v).startsWith("'") || String(v).startsWith('"')
+      return needsQuotes ? `${k}: "${String(v).replace(/"/g, '\\"')}"` : `${k}: ${v}`
     })
     .filter(Boolean)
     .join('\n')

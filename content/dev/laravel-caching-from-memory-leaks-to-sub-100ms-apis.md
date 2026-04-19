@@ -1,5 +1,5 @@
 ---
-title: Laravel Caching: From Memory Leaks to fast APIs
+title: "Laravel Caching: From Memory Leaks to fast APIs"
 description: Practical caching patterns that ship faster than your uncached endpoints.
 date: 2026-04-19
 readTime: 10 min
