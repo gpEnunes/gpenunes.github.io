@@ -1,48 +1,86 @@
 <template>
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-20">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: #00e5a8">About</p>
-    <h1 class="text-4xl sm:text-5xl font-semibold text-white mb-10 leading-tight">Emerson Nunes</h1>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+    <p
+      class="text-xs font-semibold uppercase tracking-widest mb-4"
+      style="color: rgba(255, 255, 255, 0.4)"
+    >
+      About
+    </p>
+    <h1
+      class="text-5xl sm:text-6xl font-bold mb-6 leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent"
+    >
+      Emerson Nunes
+    </h1>
+    <p class="text-lg mb-12" style="color: var(--muted)">
+      Full-Stack Developer. Based in Portugal.
+    </p>
 
-    <div class="prose prose-invert max-w-none space-y-6 text-white/70 leading-relaxed">
-      <p>
-        Full-Stack Developer with 5+ years of experience building Laravel APIs, Vue.js and Nuxt.js frontends,
-        and marketing automation systems. Based in Portugal, open to relocation across Europe.
-      </p>
-      <p>
-        Outside of code I'm into rock music, cooking, writing, and spending too much time thinking
-        about things I should probably just write down.
-      </p>
-    </div>
-
-    <!-- Stack -->
-    <div class="mt-14">
-      <h2 class="text-xl font-medium text-white mb-6">Tech Stack</h2>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div v-for="stack in stacks" :key="stack.label" class="p-4 rounded-xl border" style="border-color: var(--border); background: var(--card)">
-          <h3 class="text-sm font-medium text-white mb-3">{{ stack.label }}</h3>
-          <div class="flex flex-wrap gap-2">
-            <span
-              v-for="item in stack.items"
-              :key="item"
-              class="px-2.5 py-0.5 rounded-full text-xs"
-              style="background: rgba(255,255,255,0.06); color: var(--muted)"
-            >{{ item }}</span>
-          </div>
-        </div>
+    <!-- 2-image grid -->
+    <div class="grid grid-cols-2 gap-3 mb-14">
+      <div class="aspect-[4/5] overflow-hidden rounded-2xl">
+        <img
+          src="/banner-1.jpg"
+          alt="City"
+          class="w-full h-full object-cover opacity-75"
+        />
+      </div>
+      <div class="aspect-[4/5] overflow-hidden rounded-2xl">
+        <img
+          src="/banner-2.jpg"
+          alt="Nature"
+          class="w-full h-full object-cover opacity-75"
+        />
       </div>
     </div>
 
-    <!-- CV -->
-    <div class="mt-12">
-      <a
-        href="/cv-emerson-nunes.pdf"
-        download="cv-emerson-nunes.pdf"
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-white text-black hover:bg-white/90 transition-all hover:scale-105"
-      >
-        <Download :size="15" />
-        Download CV
-      </a>
+    <!-- Bio -->
+    <div
+      class="space-y-5 mb-10 text-lg leading-relaxed"
+      style="color: var(--muted)"
+    >
+      <p>
+        I'm a Full-Stack Developer with 5+ years of experience building Laravel
+        APIs, Vue.js and Nuxt.js frontends, and marketing automation systems.
+        Based in Portugal, open to relocation across Europe.
+      </p>
+      <p>
+        I write code with an eye for clean, maintainable systems, but I’m also
+        pragmatic about tools and shortcuts. I gravitate towards Laravel on the
+        backend and Vue/Nuxt on the frontend, and I’ve worked across enough
+        stacks to know that the right tool matters less than a solid
+        architecture and clear abstractions.
+      </p>
+      <p>
+        Outside of code I'm into metal, cooking, writing, and spending too
+        much time thinking about things I should probably just write down. This
+        site is where most of that ends up.
+      </p>
     </div>
+
+    <!-- Blockquote -->
+    <blockquote
+      class="border-l-2 pl-6 py-1 mb-14"
+      style="border-color: rgba(255, 255, 255, 0.15)"
+    >
+      <p
+        class="text-xl italic leading-relaxed"
+        style="color: rgba(255, 255, 255, 0.5)"
+      >
+        "Ship things that matter. Delete everything else."
+      </p>
+    </blockquote>
+
+    <!-- CV Download -->
+    <button
+      @click="modalOpen = true"
+      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:opacity-90"
+      style="background: white; color: black"
+    >
+      <Download :size="15" />
+      Request CV
+    </button>
+
+    <CVRequestModal :open="modalOpen" @close="modalOpen = false" />
   </div>
 </template>
 
@@ -51,14 +89,10 @@ import { Download } from 'lucide-vue-next'
 
 useSeoMeta({
   title: 'About — Emerson Nunes',
-  description: 'Full-Stack Developer based in Portugal. Laravel, Vue.js, Nuxt.js. Open to relocation across Europe.',
+  description:
+    'Full-Stack Developer based in Portugal. Laravel, Vue.js, Nuxt.js. Open to relocation across Europe.',
 })
 useHead({ link: [{ rel: 'canonical', href: 'https://enunes.net/about' }] })
 
-const stacks = [
-  { label: 'Backend',  items: ['Laravel', 'PHP 8.4', 'MySQL', 'Redis', 'REST APIs'] },
-  { label: 'Frontend', items: ['Vue.js 3', 'Nuxt.js 4', 'TypeScript', 'Tailwind CSS'] },
-  { label: 'DevOps',   items: ['Git', 'CI/CD', 'Linux', 'Vercel', 'Railway'] },
-  { label: 'Other',    items: ['Scrum', 'Figma', 'Pest', 'Vitest'] },
-]
+const modalOpen = ref(false)
 </script>

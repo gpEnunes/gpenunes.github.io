@@ -14,6 +14,8 @@ export default defineContentConfig({
         time: z.string().optional(),
         servings: z.number().optional(),
         tags: z.array(z.string()).optional(),
+        ingredients: z.array(z.string()).optional(),
+        instructions: z.array(z.string()).optional(),
       }),
     }),
     writing: defineCollection({
@@ -23,8 +25,10 @@ export default defineContentConfig({
         title: z.string(),
         description: z.string(),
         date: z.string(),
+        image: z.string().optional(),
         readTime: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        category: z.string().optional(),
       }),
     }),
     music: defineCollection({
@@ -48,17 +52,8 @@ export default defineContentConfig({
         description: z.string(),
         date: z.string(),
         readTime: z.string().optional(),
+        category: z.string().optional(),
         tags: z.array(z.string()).optional(),
-      }),
-    }),
-    thoughts: defineCollection({
-      type: 'page',
-      source: 'thoughts/*.md',
-      schema: z.object({
-        title: z.string(),
-        description: z.string(),
-        date: z.string(),
-        mood: z.string().optional(),
       }),
     }),
   },

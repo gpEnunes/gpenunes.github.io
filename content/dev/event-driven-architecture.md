@@ -3,6 +3,7 @@ title: What I learned building an Event-Driven system in Laravel
 description: After building LeadFlow on EDA principles, here's what I wish I had known from the start.
 date: 2026-04-10
 readTime: 6 min read
+category: Architecture
 tags: [Laravel, PHP, Architecture, EDA]
 ---
 
