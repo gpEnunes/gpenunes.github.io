@@ -26,7 +26,7 @@
   <p v-else class="text-sm" style="color: rgba(255,255,255,0.2)">No entries yet.</p>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Trash2 } from 'lucide-vue-next'
 defineProps<{ entries: any[] }>()
 defineEmits(['edit', 'delete'])
