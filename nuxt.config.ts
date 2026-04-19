@@ -5,6 +5,13 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
 
+  content: {
+    highlight: {
+      theme: 'github-dark',
+      langs: ['javascript', 'typescript', 'vue', 'php', 'bash', 'sh', 'json', 'css', 'html', 'sql', 'yaml', 'markdown'],
+    },
+  },
+
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || '',
     spotifyClientId: process.env.SPOTIFY_CLIENT_ID || '',
