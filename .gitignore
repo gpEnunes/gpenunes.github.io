@@ -10,3 +10,4 @@ dist/
 .data/content/contents.sqlite
 /.data/content
 .env
+public/email-signature.html

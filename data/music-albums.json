@@ -1,0 +1,334 @@
+{
+  "shelves": [
+    {
+      "id": "deep-focus",
+      "label": "Deep Focus",
+      "albums": [
+        {
+          "spotifyId": "3YBhj9joFkRfFBzC5dtlYI",
+          "note": "Foggy mornings demand a gentle nudge—this album pierces the mist with understated grooves, perfect for easing into focus without jarring your senses.",
+          "title": "The Assassination of Julius Caesar (Five-Year Anniversary Edition)",
+          "artist": "Ulver",
+          "year": 2017,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273bac1cd5f8c6d3da1dcbea0bf"
+        },
+        {
+          "spotifyId": "6Rtb6kGCLxFJiknApNXuxZ",
+          "note": "Songs that introduce quality to the mindset.",
+          "title": "Genotype",
+          "artist": "Textures",
+          "year": 2026,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273a3c9c5a4cbcfadee8a6fced0"
+        },
+        {
+          "spotifyId": "7D7V6M05UIOTjLdqbwRX0w",
+          "note": "Primal grooves and hypnotic riffs that lock in deep focus—pure concentration fuel for when you need to dive into complex work without distraction.",
+          "title": "Magma",
+          "artist": "Gojira",
+          "year": 2016,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273422c622517ea0bd7eda33e08"
+        },
+        {
+          "spotifyId": "5SLTgnlrwFXVhhU9ukuA89",
+          "note": "Progressive immersion that builds layer by layer - perfect for locking into complex work or coding sessions that demand total mental clarity.",
+          "title": "Amnesia",
+          "artist": "Monosphere",
+          "year": 2026,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2735e0b551ddc38ab9f12a66fd1"
+        }
+      ]
+    },
+    {
+      "id": "late-night",
+      "label": "Late Night",
+      "albums": [
+        {
+          "spotifyId": "63ynDniaAHRSPxeYof9YBT",
+          "note": "One of my favorite albums. Perfect for Joy Division fans with Lusitanian accent.",
+          "title": "Linda Martini",
+          "artist": "Linda Martini",
+          "year": 2018,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273c69ba12989707468eb6ad4d6"
+        },
+        {
+          "spotifyId": "3Esn6LoXuWtLZNYq8FCzr0",
+          "note": "Is there a definition of masterpiece? Yes, TOOL. And this is my favorite album.",
+          "title": "Undertow",
+          "artist": "TOOL",
+          "year": 1993,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273fd1602df46ac56e2f5260ec0"
+        },
+        {
+          "spotifyId": "1GjjBpY2iDwSQs5bykQI5e",
+          "note": "Late night passion at full throttle—love, intensity, total surrender.",
+          "title": "Diamond Eyes",
+          "artist": "Deftones",
+          "year": 2010,
+          "cover": "https://i.scdn.co/image/ab67616d0000b27372c2145d48f68917a7361b15"
+        },
+        {
+          "spotifyId": "4RXcV7qETuBAsj1FcILBxS",
+          "note": "Late night shadows where emotional ghosts emerge—dark electronic intensity for quiet hours when the mind wanders deepest.",
+          "title": "Haunted People",
+          "artist": "Ludovico Technique",
+          "year": 2022,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273529176846260a0d9e617e5e8"
+        },
+        {
+          "spotifyId": "2OhUWm2KJay2YWeItU9YcH",
+          "note": "Dark city nights pulsing with tension—perfect for when the urban melancholy hits hardest.",
+          "title": "Turn On The Bright Lights",
+          "artist": "Interpol",
+          "year": 2002,
+          "cover": "https://i.scdn.co/image/ab67616d0000b27349240ebf0c49e2d758fe6373"
+        },
+        {
+          "spotifyId": "0FMCahFjaoqI2tnwljAfsj",
+          "note": "Melodic death metal hooks meet modern aggression—perfect for channeling inner fire through soaring choruses and brutal breakdowns.",
+          "title": "Siren Charms",
+          "artist": "In Flames",
+          "year": 2014,
+          "cover": "https://i.scdn.co/image/ab67616d0000b27334fc5fba759349cd1e000b0b"
+        }
+      ]
+    },
+    {
+      "id": "drive",
+      "label": "Drive",
+      "albums": [
+        {
+          "spotifyId": "0bdtf7LHukCZbCyKMYdHXP",
+          "note": "Hit the road and don't look back.",
+          "title": "Atlas",
+          "artist": "Parkway Drive",
+          "year": 2012,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273356c88f4aacba39173266b8e"
+        },
+        {
+          "spotifyId": "2hghqPOGmfBdEfWeMsQWdN",
+          "note": "Driving Portugal's coast with epic vision—metalcore intensity that screams no time to waste, wind in your hair, cliffs ahead.",
+          "title": "An Ocean Between Us",
+          "artist": "As I Lay Dying",
+          "year": 2007,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2736bce69f919408ab21e6725ef"
+        },
+        {
+          "spotifyId": "1lvVqodR4aT3R8WemeIgDN",
+          "note": "Beautiful road trips where every landscape flows into endless horizons—riffs that turn each mile into pure scenic escape.",
+          "title": "Symbol Of Life",
+          "artist": "Paradise Lost",
+          "year": 2002,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273353a9dd1cfdd30b79148eb90"
+        },
+        {
+          "spotifyId": "6zdNTQ1uS2ZzFZkExMqcAh",
+          "note": "Southern grooves and riffs that roll like endless highways—pure road freedom with that gritty 90s edge for long, open stretches.",
+          "title": "Deliverance",
+          "artist": "Corrosion Of Conformity\t",
+          "year": 1994,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2732f0d8471a321677bdab8b51a"
+        },
+        {
+          "spotifyId": "2aNCvnKEY18a8H6Jjb7jrn",
+          "note": "Blazing energy that powers endless highways - melodic intensity for when the road demans maximum throttle and vision.",
+          "title": "Synthetic Sun",
+          "artist": "The Mechanist",
+          "year": 2026,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273ee65edfafd7312c712f5b8b8"
+        }
+      ]
+    },
+    {
+      "id": "rage",
+      "label": "Rage",
+      "albums": [
+        {
+          "spotifyId": "74nOacPOdDQvxiAZZYrPV5",
+          "note": "Pure rage fuel - dark fury that unleashes everything you've been holding back. Perfect for when the world need to feel your fire.",
+          "title": "Behind the Blackest Tears",
+          "artist": "Kingdom Of Sorrow",
+          "year": 2010,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273f2f491b7fa332591a4730277"
+        },
+        {
+          "spotifyId": "6lA1sGw7eCv27bcpd5E0wT",
+          "note": "Chaotic party energy that ignites wild crowds—explosive riffs and hooks you can't resist when the night hits fever pitch.",
+          "title": "Steal This Album!",
+          "artist": "System Of A Down",
+          "year": 2002,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2737cf4c0d42c5b62c9deebdcd8"
+        },
+        {
+          "spotifyId": "05DePtm7oQMdL3Uzw2Jmsc",
+          "note": "Lightning-fast riffs that strike like thunder—pure classic fury you feel in your bones.",
+          "title": "Ride The Lightning (Remastered)",
+          "artist": "Metallica",
+          "year": 1984,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2739ad3e9959f48d513886b8933"
+        },
+        {
+          "spotifyId": "65zbnh9vQTcyv6HvcmUDgn",
+          "note": "Modern metalcore fury about betrayal and survival—heavy riffs for unleashing everything when the wreckage demands your fight back.",
+          "title": "In Reverent Fear",
+          "artist": "VOID AWAKEN",
+          "year": 2026,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2730bbd76aca8336617324c068f"
+        },
+        {
+          "spotifyId": "4iZM0ieSYmfdxaPrKceTu5",
+          "note": "Oath-bound wrath that carves its own relentless path—unbreakable commitment through storms, for when you need music as fierce as your resolve.",
+          "title": "The Path",
+          "artist": "Sylosis",
+          "year": 2024,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273a7eb005b63376a9f5c99f04e"
+        },
+        {
+          "spotifyId": "2E9ubuFrFsdkmFuwZEO4pB",
+          "note": "Savage, unfiltered aggression that tears through everything—pure primal release for when restraint is no longer an option.",
+          "title": "Feral",
+          "artist": "Bore",
+          "year": 2025,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273a6fd1efe74bf4a2f3b6cdbfb"
+        }
+      ]
+    },
+    {
+      "id": "melancholy",
+      "label": "Melancholy",
+      "albums": [
+        {
+          "spotifyId": "0o1AkupiLcHmXrJsmsNzqR",
+          "note": "Take a look around, crack open a beer, and let the weight of the world slide off your shoulders.",
+          "title": "Odd Fellows Rest",
+          "artist": "Crowbar",
+          "year": 2003,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273d4fcc6b9ceb3219f4dbb7602"
+        },
+        {
+          "spotifyId": "04BvRPJwuDeuJ3DhbAw9Wg",
+          "note": "Summer sludge nostalgia—rebellious youth, zero regrets, humid New Orleans riffs.",
+          "title": "Nola",
+          "artist": "DOWN",
+          "year": 1995,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273bd53947ce705d95e0fa3852d"
+        },
+        {
+          "spotifyId": "16v3Ule2sTTWT37VKUsH6F",
+          "note": "Melancholy with piercing vision—when you need clarity through the haze, these haunting layers cut straight to what matters most.",
+          "title": "Lotus",
+          "artist": "Soen",
+          "year": 2019,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2737089e92bd1e362f6627bfc52"
+        },
+        {
+          "spotifyId": "3DAEWll6rPpAVwCuznzIOU",
+          "note": "Cleansing waves that wash over the soul—introspective depth for when you need to feel every drop of emotional release.",
+          "title": "A New Found Rain",
+          "artist": "MIRE",
+          "year": 2021,
+          "cover": "https://i.scdn.co/image/ab67616d0000b27342d3a56c8990146db418c43b"
+        },
+        {
+          "spotifyId": "3bPrk5eZSMIHL5uIS2ESe6",
+          "note": "Vast, desolate soundscapes carrying raw grief and longing—perfect for when you need to confront the ashes and find catharsis in the silence.",
+          "title": "Scorched Earth",
+          "artist": "Harakiri for the Sky",
+          "year": 2025,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273fdad7dec917854c428ecbb79"
+        },
+        {
+          "spotifyId": "0odHePIb1VkSSZPiJFJfSk",
+          "note": "Blues-soaked heavy rock with soulful riffs and swagger—for late-night drives when you need raw emotion over polished perfection.",
+          "title": "Lights Out",
+          "artist": "Graveyard",
+          "year": 2012,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273686576aa9117db7f1ffb1a94"
+        }
+      ]
+    },
+    {
+      "id": "party",
+      "label": "Party",
+      "albums": [
+        {
+          "spotifyId": "0e1tx4BTovXIECVpzfGFvJ",
+          "note": "Rowdy southern rock that gets the bonfire roaring—beer-chugging, boot-stomping anthems for when the night demands full-throttle celebration.",
+          "title": "High In The Saddle",
+          "artist": "Texas Hippie Coalition",
+          "year": 2019,
+          "cover": "https://i.scdn.co/image/ab67616d0000b27358dc2daac999b27c29ccdbd2"
+        },
+        {
+          "spotifyId": "7vTIPNCT9nCHw8hhskPYj1",
+          "note": "Party energy that lights up nights with friends—dramatic rhythms for celebrations without limits.",
+          "title": "F & M (Deluxe)",
+          "artist": "Lindemann",
+          "year": 2019,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273e675d7e4970918b5e0fb3052"
+        }
+      ]
+    },
+    {
+      "id": "classics",
+      "label": "Classics",
+      "albums": [
+        {
+          "spotifyId": "0qaLL09EtF1hiUis7PRvaJ",
+          "note": "I couldn't live without this album. 90's in 13 songs.",
+          "title": "Rust In Peace (2004 Remix / Expanded Edition)",
+          "artist": "Megadeth",
+          "year": 1990,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273be9fa5a89479b6af481938a0"
+        },
+        {
+          "spotifyId": "2Lq2qX3hYhiuPckC8Flj21",
+          "note": "A classic that shaped who I am—raw power and precision I wouldn't be the same without. Timeless riffs that hit like personal milestones.",
+          "title": "Master Of Puppets (Remastered)",
+          "artist": "Metallica",
+          "year": 1986,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273668e3aca3167e6e569a9aa20"
+        },
+        {
+          "spotifyId": "1PJtQrmYNraIeTjapfuYcf",
+          "note": "Classics that scream great summers, good friends, and memories etched in fire - pure adrenaline from those perfect days that never fade.",
+          "title": "Sacrament (15th Anniversary Edition)",
+          "artist": "Lamb of God",
+          "year": 2006,
+          "cover": "https://i.scdn.co/image/ab67616d0000b273fd4ec2b2d9f36007ee69abb4"
+        },
+        {
+          "spotifyId": "5JjnPCfpp6redrkKpXZAs8",
+          "note": "My Brazilian roots captured in 16 unforgettable songs—a fierce reminder to never forget where I came from. Pure ancestral power.",
+          "title": "Roots",
+          "artist": "Sepultura",
+          "year": 1996,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2730bd5e7cce9765c2ef519424e"
+        },
+        {
+          "spotifyId": "24fNwoIq4NLDf4ARJYAFN9",
+          "note": "The classic that changed everything—the world wouldn't be the same without Black Sabbath's heavy blueprint. Foundational riffs that echo forever.",
+          "title": "Master of Reality",
+          "artist": "Black Sabbath",
+          "year": 1971,
+          "cover": "https://i.scdn.co/image/ab67616d0000b27395326acf47fb8dd45e61c8d3"
+        },
+        {
+          "spotifyId": "5szY4sBOSD6IFjFN1RtWTe",
+          "note": "The essential classic—a must-have that redefined heavy sound with unstoppable groove and Texas attitude. Pure fire that belongs in every collection.",
+          "title": "Cowboys from Hell",
+          "artist": "Pantera",
+          "year": 1990,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2730ce52f4ba340a1e459e6a978"
+        },
+        {
+          "spotifyId": "6mvrfjdgSvwcDXhxyVjWTx",
+          "note": "Raw speed that ignites wild crowds—\"Going to Brazil\" and \"R.A.M.O.N.E.S.\" turn any night into pure chaos celebration.",
+          "title": "1916",
+          "artist": "Motörhead",
+          "year": 1991,
+          "cover": "https://i.scdn.co/image/ab67616d0000b2731550f6d6d7c226710f7b0d20"
+        }
+      ]
+    }
+  ]
+}

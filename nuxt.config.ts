@@ -2,10 +2,20 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-29',
+  future: { compatibilityVersion: 4 },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
+
+  content: {
+    highlight: {
+      theme: 'github-dark',
+      langs: ['javascript', 'typescript', 'vue', 'php', 'bash', 'sh', 'json', 'css', 'html', 'sql', 'yaml', 'markdown'],
+    },
+  },
 
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || '',
+    spotifyClientId: process.env.SPOTIFY_CLIENT_ID || '',
+    spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET || '',
     public: {
       gaId: process.env.NUXT_PUBLIC_GA_ID || '',
     },
@@ -16,10 +26,6 @@ export default defineNuxtConfig({
       '/**': { isr: true },
     },
   },
-  $development: {},
-  $env: {
-    staging: {},
-  },
 
   app: {
     head: {
@@ -29,26 +35,22 @@ export default defineNuxtConfig({
       meta: [
         { name: 'author', content: 'Emerson Nunes' },
         { name: 'robots', content: 'index, follow' },
-        { name: 'theme-color', content: '#0b0f14' },
+        { name: 'theme-color', content: '#0a0a0a' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'canonical', href: 'https://enunes.net/' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
         },
       ],
     },
   },
 
-  css: ['~/assets/css/theme.css'],
+  css: ['~/assets/css/main.css'],
   postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
+    plugins: { tailwindcss: {}, autoprefixer: {} },
   },
   typescript: { shim: false },
   components: true,

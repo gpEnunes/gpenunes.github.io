@@ -1,15 +1,19 @@
 ﻿/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './components/**/*.{vue,js}',
-    './layouts/**/*.{vue,js}',
-    './pages/**/*.{vue,js}',
-    './composables/**/*.{js,ts}',
-    './app.vue',
-    './nuxt.config.{js,ts}'
+    './app/components/**/*.{vue,js,ts}',
+    './app/layouts/**/*.vue',
+    './app/pages/**/*.vue',
+    './app/composables/**/*.{js,ts}',
+    './app/app.vue',
+    './nuxt.config.{js,ts}',
   ],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+    },
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography')]
 }

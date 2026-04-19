@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --card: #141414;
+  --border: rgba(255, 255, 255, 0.08);
+  --muted: #a0a0a0;
+  --radius: 12px;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-color: var(--background);
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .text-muted { color: var(--muted); }
+  .bg-card { background-color: var(--card); }
+  .border-subtle { border-color: var(--border); }
+}
+
+/* Code blocks (Shiki output via Nuxt Content) */
+.prose pre {
+  background: #0d1117 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  margin: 1.5rem 0;
+}
+
+.prose pre code {
+  background: none !important;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  border-radius: 0;
+}
+
+/* Inline code */
+.prose :not(pre) > code {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 0.15em 0.45em;
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
