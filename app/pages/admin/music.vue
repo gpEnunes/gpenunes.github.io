@@ -27,7 +27,7 @@
             <select
               v-model="form.shelf"
               class="w-full rounded-xl px-4 py-3 text-sm text-white outline-none focus:ring-1 focus:ring-white/20"
-              style="background: rgba(255,255,255,0.05); border: 1px solid var(--border)"
+              style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); color-scheme: dark"
             >
               <option v-for="shelf in shelves" :key="shelf.id" :value="shelf.id">{{ shelf.label }}</option>
             </select>
@@ -56,7 +56,7 @@
           </div>
         </div>
 
-        <div v-if="preview">
+        <div>
           <label class="block text-xs mb-1.5" style="color: var(--muted)">One-liner note</label>
           <input
             v-model="form.note"
