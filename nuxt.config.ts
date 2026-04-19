@@ -21,6 +21,10 @@ export default defineNuxtConfig({
     },
   },
 
+  nitro: {
+    serverAssets: [{ baseName: 'data', dir: './data' }],
+  },
+
   $production: {
     routeRules: {
       '/**': { isr: true },

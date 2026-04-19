@@ -1,12 +1,15 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
-const FILE = join(process.cwd(), 'data', 'music-albums.json')
-
-export default defineEventHandler(() => {
-  try {
-    return JSON.parse(readFileSync(FILE, 'utf-8'))
-  } catch {
-    return { shelves: [] }
+export default defineEventHandler(async () => {
+  if (import.meta.dev) {
+    try {
+      return JSON.parse(readFileSync(join(process.cwd(), 'data', 'music-albums.json'), 'utf-8'))
+    } catch {
+      return { shelves: [] }
+    }
   }
+
+  const data = await useStorage('assets:data').getItem('music-albums.json')
+  return data ?? { shelves: [] }
 })
