@@ -156,6 +156,16 @@ const stack = [
 
 const projects = [
   {
+    title: 'DevStats',
+    description: 'Developer activity dashboard aggregating GitHub, Linear, and Toggl into a single daily context. Generates standup drafts, tracks open PRs, and surfaces cycle progress — all from one place.',
+    favicon: '/devstats-favicon.svg',
+    tags: ['Laravel 13', 'Nuxt 4', 'MySQL', 'TypeScript', 'PHP 8.3'],
+    url: 'https://devstats.enunes.net',
+    repo: null,
+    privateRepo: true,
+    accentColor: '#6366f1',
+  },
+  {
     title: 'LeadFlow',
     description: 'Marketing automation platform built on Event-Driven Architecture. Handles lead ingestion, atomic score calculation via Redis queues, and a real-time dashboard with WebSocket updates.',
     favicon: '/leadflow-favicon.svg',
