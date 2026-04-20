@@ -1,8 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#6366f1"/>
-  <rect x="6" y="18" width="4" height="8" rx="1" fill="white" opacity="0.6"/>
-  <rect x="12" y="12" width="4" height="14" rx="1" fill="white" opacity="0.8"/>
-  <rect x="18" y="8" width="4" height="18" rx="1" fill="white"/>
-  <circle cx="24" cy="9" r="2" fill="white"/>
-  <path d="M8 17 L14 11 L20 7 L24 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Background -->
+  <rect width="32" height="32" rx="8" fill="#0a0a0a"/>
+
+  <!-- Bar chart bars -->
+  <rect x="5" y="18" width="5" height="9" rx="1.5" fill="#6366f1" opacity="0.4"/>
+  <rect x="13" y="12" width="5" height="15" rx="1.5" fill="#6366f1" opacity="0.7"/>
+  <rect x="21" y="6" width="5" height="21" rx="1.5" fill="#6366f1"/>
+
+  <!-- Indigo dot (logo mark) -->
+  <circle cx="8" cy="8" r="3.5" fill="#6366f1"/>
 </svg>
