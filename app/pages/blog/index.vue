@@ -1,15 +1,15 @@
 <template>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: rgba(255,255,255,0.4)">Words</p>
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: rgba(255,255,255,0.4)">{{ $t('writing.label') }}</p>
     <h1 class="text-5xl sm:text-6xl font-bold mb-4 leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-      Writing
+      {{ $t('writing.title') }}
     </h1>
-    <p class="text-lg mb-12" style="color: var(--muted)">Essays, notes and things I felt like putting into words.</p>
+    <p class="text-lg mb-12" style="color: var(--muted)">{{ $t('writing.subtitle') }}</p>
 
     <template v-if="posts?.length">
       <!-- Featured post -->
       <NuxtLink
-        :to="featured.path"
+        :to="localePath(featured.path)"
         class="group relative block rounded-2xl overflow-hidden mb-10 transition-all"
       >
         <div class="aspect-[21/9] overflow-hidden">
@@ -37,7 +37,7 @@
         <NuxtLink
           v-for="post in rest"
           :key="post.path"
-          :to="post.path"
+          :to="localePath(post.path)"
           class="group flex items-start gap-5 p-5 transition-all hover:bg-white/5"
           style="background: var(--card)"
         >
@@ -57,34 +57,38 @@
       </div>
     </template>
 
-    <p v-else class="text-white/40">No posts yet. Coming soon.</p>
+    <p v-else class="text-white/40">{{ $t('writing.empty') }}</p>
   </div>
 </template>
 
 <script setup>
 import { ArrowRight } from 'lucide-vue-next'
 
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
+
 useSeoMeta({
-  title: 'Writing — Emerson Nunes',
-  description: 'Essays, notes and things worth putting into words. Ideas about code, life and everything in between.',
-  ogTitle: 'Writing — Emerson Nunes',
-  ogDescription: 'Essays, notes and things worth putting into words. Ideas about code, life and everything in between.',
+  title: computed(() => t('writing.seo_title')),
+  description: computed(() => t('writing.seo_description')),
+  ogTitle: computed(() => t('writing.seo_title')),
+  ogDescription: computed(() => t('writing.seo_description')),
   ogImage: 'https://enunes.net/og-image.png',
-  ogUrl: 'https://enunes.net/writing',
+  ogUrl: 'https://enunes.net/blog',
   ogType: 'website',
   twitterCard: 'summary_large_image',
   twitterImage: 'https://enunes.net/og-image.png',
 })
-useHead({ link: [{ rel: 'canonical', href: 'https://enunes.net/writing' }] })
+useHead({ link: [{ rel: 'canonical', href: 'https://enunes.net/blog' }] })
 
-const { data: posts } = await useAsyncData('writing', () =>
-  queryCollection('writing').order('date', 'DESC').all()
+const { data: posts } = await useAsyncData('blog', () =>
+  queryCollection('blog').order('date', 'DESC').all()
 )
 
 const featured = computed(() => posts.value?.[0])
 const rest = computed(() => posts.value?.slice(1) ?? [])
 
 function formatDate(d) {
-  return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+  const loc = locale.value === 'pt' ? 'pt-PT' : 'en-GB'
+  return new Date(d).toLocaleDateString(loc, { day: 'numeric', month: 'short', year: 'numeric' })
 }
 </script>

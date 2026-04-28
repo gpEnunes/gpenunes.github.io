@@ -38,6 +38,7 @@
         :href="project.url"
         target="_blank"
         rel="noopener noreferrer"
+        @click="trackDemo(project.title)"
         class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all hover:scale-105"
         :style="{ background: `${project.accentColor}22`, color: project.accentColor, border: `1px solid ${project.accentColor}44` }"
       >
@@ -75,4 +76,10 @@ import { ExternalLink, Lock, Github } from 'lucide-vue-next'
 
 defineProps({ project: { type: Object, required: true } })
 defineEmits(['request'])
+
+function trackDemo(title) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'demo_click', { project_title: title, location: 'dev_page' })
+  }
+}
 </script>

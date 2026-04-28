@@ -18,9 +18,9 @@ export default defineContentConfig({
         instructions: z.array(z.string()).optional(),
       }),
     }),
-    writing: defineCollection({
+    blog: defineCollection({
       type: 'page',
-      source: 'writing/*.md',
+      source: 'blog/*.md',
       schema: z.object({
         title: z.string(),
         description: z.string(),

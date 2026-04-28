@@ -4,7 +4,7 @@
       class="text-xs font-semibold uppercase tracking-widest mb-4"
       style="color: rgba(255, 255, 255, 0.4)"
     >
-      About
+      {{ $t('about.label') }}
     </p>
     <h1
       class="text-5xl sm:text-6xl font-bold mb-6 leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent"
@@ -12,7 +12,7 @@
       Emerson Nunes
     </h1>
     <p class="text-lg mb-12" style="color: var(--muted)">
-      Full-Stack Developer. Based in Portugal.
+      {{ $t('about.subtitle') }}
     </p>
 
     <!-- 2-image grid -->
@@ -20,14 +20,14 @@
       <div class="aspect-[4/5] overflow-hidden rounded-2xl">
         <img
           src="/banner-1.jpg"
-          alt="City"
+          :alt="$t('about.img_city')"
           class="w-full h-full object-cover opacity-75"
         />
       </div>
       <div class="aspect-[4/5] overflow-hidden rounded-2xl">
         <img
           src="/banner-2.jpg"
-          alt="Nature"
+          :alt="$t('about.img_nature')"
           class="w-full h-full object-cover opacity-75"
         />
       </div>
@@ -38,23 +38,9 @@
       class="space-y-5 mb-10 text-lg leading-relaxed"
       style="color: var(--muted)"
     >
-      <p>
-        I'm a Full-Stack Developer with 5+ years of experience building Laravel
-        APIs, Vue.js and Nuxt.js frontends, and marketing automation systems.
-        Based in Portugal, open to relocation across Europe.
-      </p>
-      <p>
-        I write code with an eye for clean, maintainable systems, but I’m also
-        pragmatic about tools and shortcuts. I gravitate towards Laravel on the
-        backend and Vue/Nuxt on the frontend, and I’ve worked across enough
-        stacks to know that the right tool matters less than a solid
-        architecture and clear abstractions.
-      </p>
-      <p>
-        Outside of code I'm into metal, cooking, writing, and spending too
-        much time thinking about things I should probably just write down. This
-        site is where most of that ends up.
-      </p>
+      <p>{{ $t('about.bio_1') }}</p>
+      <p>{{ $t('about.bio_2') }}</p>
+      <p>{{ $t('about.bio_3') }}</p>
     </div>
 
     <!-- Blockquote -->
@@ -66,7 +52,7 @@
         class="text-xl italic leading-relaxed"
         style="color: rgba(255, 255, 255, 0.5)"
       >
-        "Ship things that matter. Delete everything else."
+        "{{ $t('about.quote') }}"
       </p>
     </blockquote>
 
@@ -77,7 +63,7 @@
       style="background: white; color: black"
     >
       <Download :size="15" />
-      Request CV
+      {{ $t('about.request_cv') }}
     </button>
 
     <CVRequestModal :open="modalOpen" @close="modalOpen = false" />
@@ -87,10 +73,11 @@
 <script setup>
 import { Download } from 'lucide-vue-next'
 
+const { t } = useI18n()
+
 useSeoMeta({
-  title: 'About — Emerson Nunes',
-  description:
-    'Full-Stack Developer based in Portugal. Laravel, Vue.js, Nuxt.js. Open to relocation across Europe.',
+  title: computed(() => t('about.seo_title')),
+  description: computed(() => t('about.seo_description')),
 })
 useHead({ link: [{ rel: 'canonical', href: 'https://enunes.net/about' }] })
 

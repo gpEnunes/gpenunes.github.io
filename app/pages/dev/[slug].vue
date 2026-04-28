@@ -2,8 +2,8 @@
   <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
     <div class="max-w-3xl mx-auto">
 
-      <NuxtLink to="/dev" class="inline-flex items-center gap-2 text-sm mb-6 sm:mb-8 transition-colors hover:text-white" style="color: rgba(255,255,255,0.6)">
-        <ArrowLeft :size="16" /> Back to Dev
+      <NuxtLink :to="localePath('/dev')" class="inline-flex items-center gap-2 text-sm mb-6 sm:mb-8 transition-colors hover:text-white" style="color: rgba(255,255,255,0.6)">
+        <ArrowLeft :size="16" /> {{ $t('nav.dev') }}
       </NuxtLink>
 
       <template v-if="post">
@@ -39,12 +39,12 @@
 
         <!-- More Dev Posts -->
         <section v-if="morePosts?.length" class="pt-12" style="border-top: 1px solid rgba(255,255,255,0.1)">
-          <h2 class="text-2xl font-semibold text-white mb-6">More Dev Posts</h2>
+          <h2 class="text-2xl font-semibold text-white mb-6">{{ $t('nav.dev') }}</h2>
           <div class="space-y-4">
             <NuxtLink
               v-for="other in morePosts"
               :key="other.path"
-              :to="other.path"
+              :to="localePath(other.path)"
               class="group block p-6 rounded-xl transition-all hover:border-white/20"
               style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1)"
             >
@@ -66,6 +66,8 @@
 <script setup>
 import { ArrowLeft, Tag } from 'lucide-vue-next'
 
+const { locale } = useI18n()
+const localePath = useLocalePath()
 const route = useRoute()
 
 const [{ data: post }, { data: allPosts }] = await Promise.all([
@@ -112,6 +114,7 @@ useHead({
 })
 
 function formatDate(d) {
-  return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+  const loc = locale.value === 'pt' ? 'pt-PT' : 'en-GB'
+  return new Date(d).toLocaleDateString(loc, { day: 'numeric', month: 'short', year: 'numeric' })
 }
 </script>

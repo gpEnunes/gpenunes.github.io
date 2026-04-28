@@ -2,8 +2,8 @@
   <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
     <div class="max-w-3xl mx-auto">
 
-      <NuxtLink to="/writing" class="inline-flex items-center gap-2 text-sm mb-6 sm:mb-8 transition-colors hover:text-white" style="color: rgba(255,255,255,0.6)">
-        <ArrowLeft :size="16" /> Back to Writing
+      <NuxtLink :to="localePath('/blog')" class="inline-flex items-center gap-2 text-sm mb-6 sm:mb-8 transition-colors hover:text-white" style="color: rgba(255,255,255,0.6)">
+        <ArrowLeft :size="16" /> {{ $t('writing.back') }}
       </NuxtLink>
 
       <template v-if="post">
@@ -39,14 +39,14 @@
           <ContentRenderer :value="post" />
         </article>
 
-        <!-- More Writing -->
+        <!-- More from the Blog -->
         <section v-if="morePosts?.length" class="pt-12" style="border-top: 1px solid rgba(255,255,255,0.1)">
-          <h2 class="text-2xl font-semibold text-white mb-6">More Writing</h2>
+          <h2 class="text-2xl font-semibold text-white mb-6">{{ $t('writing.more') }}</h2>
           <div class="space-y-4">
             <NuxtLink
               v-for="other in morePosts"
               :key="other.path"
-              :to="other.path"
+              :to="localePath(other.path)"
               class="group block p-6 rounded-xl transition-all hover:border-white/20"
               style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1)"
             >
@@ -68,14 +68,16 @@
 <script setup>
 import { ArrowLeft, Clock, Tag } from 'lucide-vue-next'
 
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
 const route = useRoute()
 
 const [{ data: post }, { data: allPosts }] = await Promise.all([
-  useAsyncData(`writing-${route.params.slug}`, () =>
-    queryCollection('writing').path(`/writing/${route.params.slug}`).first()
+  useAsyncData(`blog-${route.params.slug}`, () =>
+    queryCollection('blog').path(`/blog/${route.params.slug}`).first()
   ),
-  useAsyncData('writing-all', () =>
-    queryCollection('writing').order('date', 'DESC').all()
+  useAsyncData('blog-all', () =>
+    queryCollection('blog').order('date', 'DESC').all()
   ),
 ])
 
@@ -87,9 +89,9 @@ const morePosts = computed(() =>
 
 const canonicalUrl = `https://enunes.net${post.value.path}`
 useSeoMeta({
-  title: `${post.value.title} — Writing`,
+  title: `${post.value.title} — Blog`,
   description: post.value.description,
-  ogTitle: `${post.value.title} — Writing`,
+  ogTitle: `${post.value.title} — Blog`,
   ogDescription: post.value.description,
   ogImage: post.value.image || 'https://enunes.net/og-image.png',
   ogUrl: canonicalUrl,
@@ -114,6 +116,7 @@ useHead({
 })
 
 function formatDate(d) {
-  return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+  const loc = locale.value === 'pt' ? 'pt-PT' : 'en-GB'
+  return new Date(d).toLocaleDateString(loc, { day: 'numeric', month: 'short', year: 'numeric' })
 }
 </script>
