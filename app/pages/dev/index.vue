@@ -112,7 +112,18 @@
           class="flex items-center gap-3 p-3.5 rounded-xl border h-16"
           style="border-color: var(--border); background: var(--card)"
         >
-          <img :src="`https://cdn.simpleicons.org/${tool.icon}/${tool.color}`" :alt="tool.name" class="w-6 h-6 shrink-0" />
+          <img
+            v-if="!iconErrors[tool.name]"
+            :src="`https://cdn.simpleicons.org/${tool.icon}/${tool.color}`"
+            :alt="tool.name"
+            class="w-6 h-6 shrink-0"
+            @error="iconErrors[tool.name] = true"
+          />
+          <span
+            v-else
+            class="w-6 h-6 shrink-0 rounded flex items-center justify-center text-xs font-bold"
+            :style="{ background: `#${tool.color}22`, color: `#${tool.color}` }"
+          >{{ tool.name[0] }}</span>
           <div class="min-w-0">
             <p class="text-sm font-medium text-white truncate">{{ tool.name }}</p>
             <p class="text-xs truncate" style="color: var(--muted)">{{ tool.type }}</p>
@@ -129,6 +140,8 @@
 import { ExternalLink, Lock } from 'lucide-vue-next'
 
 const { t, tm, rt } = useI18n()
+
+const iconErrors = reactive({})
 
 useSeoMeta({
   title: computed(() => t('dev.seo_title')),
