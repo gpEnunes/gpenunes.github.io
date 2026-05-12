@@ -105,7 +105,7 @@
     <!-- Stack -->
     <div>
       <h2 class="text-xl font-semibold text-white mb-6">{{ $t('dev.stack_heading') }}</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div
           v-for="tool in stack"
           :key="tool.name"
@@ -181,6 +181,8 @@ const stack = [
   { icon: 'redis',         color: 'DC382D', name: 'Redis',          type: 'Cache'     },
   { icon: 'docker',        color: '2496ED', name: 'Docker',         type: 'DevOps'    },
   { icon: 'githubactions', color: '2088FF', name: 'GitHub Actions', type: 'CI/CD'     },
+  { icon: 'pestphp',       color: 'F28E1C', name: 'Pest',           type: 'Testing'   },
+  { icon: 'vitest',        color: '6E9F18', name: 'Vitest',         type: 'Testing'   },
   { icon: 'railway',       color: 'ffffff', name: 'Railway',        type: 'DevOps'    },
   { icon: 'vercel',        color: 'ffffff', name: 'Vercel',         type: 'Hosting'   },
 ]
