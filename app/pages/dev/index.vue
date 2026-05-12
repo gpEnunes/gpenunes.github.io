@@ -109,13 +109,13 @@
         <div
           v-for="tool in stack"
           :key="tool.name"
-          class="flex items-center gap-3 p-3.5 rounded-xl border"
+          class="flex items-center gap-3 p-3.5 rounded-xl border h-16"
           style="border-color: var(--border); background: var(--card)"
         >
           <img :src="`https://cdn.simpleicons.org/${tool.icon}/${tool.color}`" :alt="tool.name" class="w-6 h-6 shrink-0" />
-          <div>
-            <p class="text-sm font-medium text-white">{{ tool.name }}</p>
-            <p class="text-xs" style="color: var(--muted)">{{ tool.type }}</p>
+          <div class="min-w-0">
+            <p class="text-sm font-medium text-white truncate">{{ tool.name }}</p>
+            <p class="text-xs truncate" style="color: var(--muted)">{{ tool.type }}</p>
           </div>
         </div>
       </div>
