@@ -109,13 +109,24 @@
         <div
           v-for="tool in stack"
           :key="tool.name"
-          class="flex items-center gap-3 p-3.5 rounded-xl border"
+          class="flex items-center gap-3 p-3.5 rounded-xl border h-16"
           style="border-color: var(--border); background: var(--card)"
         >
-          <img :src="`https://cdn.simpleicons.org/${tool.icon}/${tool.color}`" :alt="tool.name" class="w-6 h-6 shrink-0" />
-          <div>
-            <p class="text-sm font-medium text-white">{{ tool.name }}</p>
-            <p class="text-xs" style="color: var(--muted)">{{ tool.type }}</p>
+          <img
+            v-if="!iconErrors[tool.name]"
+            :src="`https://cdn.simpleicons.org/${tool.icon}/${tool.color}`"
+            :alt="tool.name"
+            class="w-6 h-6 shrink-0"
+            @error="iconErrors[tool.name] = true"
+          />
+          <span
+            v-else
+            class="w-6 h-6 shrink-0 rounded flex items-center justify-center text-xs font-bold"
+            :style="{ background: `#${tool.color}22`, color: `#${tool.color}` }"
+          >{{ tool.name[0] }}</span>
+          <div class="min-w-0">
+            <p class="text-sm font-medium text-white truncate">{{ tool.name }}</p>
+            <p class="text-xs truncate" style="color: var(--muted)">{{ tool.type }}</p>
           </div>
         </div>
       </div>
@@ -129,6 +140,8 @@
 import { ExternalLink, Lock } from 'lucide-vue-next'
 
 const { t, tm, rt } = useI18n()
+
+const iconErrors = reactive({})
 
 useSeoMeta({
   title: computed(() => t('dev.seo_title')),
@@ -153,7 +166,7 @@ const projects = computed(() => [
     description: t('dev.projects.devstats.description'),
     highlights: tm('dev.projects.devstats.highlights').map(i => rt(i)),
     favicon: '/devstats-favicon.svg',
-    tags: ['Laravel 13', 'Nuxt 4', 'TypeScript', 'Redis', 'WebSocket', 'MySQL', 'PHP 8.3', 'Vercel', 'Railway'],
+    tags: ['Laravel 13', 'Nuxt 4', 'TypeScript', 'Redis', 'WebSocket', 'MySQL', 'PHP 8.3', 'Docker', 'GitHub Actions', 'Vercel', 'Railway'],
     url: 'https://devstats.enunes.net',
     privateRepo: true,
     accentColor: '#6366f1',
@@ -173,14 +186,18 @@ const projects = computed(() => [
 ])
 
 const stack = [
-  { icon: 'laravel',    color: 'FF2D20', name: 'Laravel',    type: 'Backend'   },
-  { icon: 'vuedotjs',   color: '4FC08D', name: 'Vue.js',     type: 'Frontend'  },
-  { icon: 'nuxt',       color: '00DC82', name: 'Nuxt',       type: 'Framework' },
-  { icon: 'typescript', color: '3178C6', name: 'TypeScript', type: 'Language'  },
-  { icon: 'mysql',      color: '4479A1', name: 'MySQL',      type: 'Database'  },
-  { icon: 'redis',      color: 'DC382D', name: 'Redis',      type: 'Cache'     },
-  { icon: 'railway',    color: 'ffffff', name: 'Railway',    type: 'DevOps'    },
-  { icon: 'vercel',     color: 'ffffff', name: 'Vercel',     type: 'Hosting'   },
+  { icon: 'laravel',       color: 'FF2D20', name: 'Laravel',        type: 'Backend'   },
+  { icon: 'vuedotjs',      color: '4FC08D', name: 'Vue.js',         type: 'Frontend'  },
+  { icon: 'nuxt',          color: '00DC82', name: 'Nuxt',           type: 'Framework' },
+  { icon: 'typescript',    color: '3178C6', name: 'TypeScript',     type: 'Language'  },
+  { icon: 'mysql',         color: '4479A1', name: 'MySQL',          type: 'Database'  },
+  { icon: 'redis',         color: 'DC382D', name: 'Redis',          type: 'Cache'     },
+  { icon: 'docker',        color: '2496ED', name: 'Docker',         type: 'DevOps'    },
+  { icon: 'githubactions', color: '2088FF', name: 'GitHub Actions', type: 'CI/CD'     },
+  { icon: 'pestphp',       color: 'F28E1C', name: 'Pest',           type: 'Testing'   },
+  { icon: 'vitest',        color: '6E9F18', name: 'Vitest',         type: 'Testing'   },
+  { icon: 'railway',       color: 'ffffff', name: 'Railway',        type: 'DevOps'    },
+  { icon: 'vercel',        color: 'ffffff', name: 'Vercel',         type: 'Hosting'   },
 ]
 
 function openModal(project) {

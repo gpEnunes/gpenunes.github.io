@@ -146,7 +146,7 @@ useHead({
       '@type': 'Person',
       name: 'Emerson Nunes',
       jobTitle: 'Fullstack Developer',
-      description: 'Fullstack Developer with 5+ years building Laravel APIs, Vue.js and Nuxt.js frontends, and real-time dashboards. Based in Portugal, open to relocation across Europe.',
+      description: 'Fullstack Developer with 8+ years building Laravel APIs, Vue.js and Nuxt.js frontends, and real-time dashboards. Based in Portugal, open to relocation across Europe.',
       image: 'https://enunes.net/og-image.png',
       url: 'https://enunes.net',
       sameAs: ['https://www.linkedin.com/in/emerson-nunes5', 'https://github.com/gpEnunes'],
