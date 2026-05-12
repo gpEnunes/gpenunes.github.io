@@ -16,12 +16,12 @@
     "portfolio_cta": "View all projects",
     "latest_heading": "Latest",
     "seo_title": "Emerson Nunes · Fullstack Developer",
-    "seo_description": "Fullstack Developer with 5+ years, specialised in Vue.js, Nuxt.js, Laravel and real-time dashboards. Portfolio with DevStats and LeadFlow."
+    "seo_description": "Fullstack Developer with 8+ years, specialised in Vue.js, Nuxt.js, Laravel and real-time dashboards. Portfolio with DevStats and LeadFlow."
   },
   "about": {
     "label": "About",
     "subtitle": "Full-Stack Developer. Based in Portugal.",
-    "bio_1": "I'm a Full-Stack Developer with 5+ years of experience building Laravel APIs, Vue.js and Nuxt.js frontends, and marketing automation systems. Based in Portugal, open to relocation across Europe.",
+    "bio_1": "I'm a Full-Stack Developer with 8+ years of experience building Laravel APIs, Vue.js and Nuxt.js frontends, and marketing automation systems. Based in Portugal, open to relocation across Europe.",
     "bio_2": "I write code with an eye for clean, maintainable systems, but I'm also pragmatic about tools and shortcuts. I gravitate towards Laravel on the backend and Vue/Nuxt on the frontend, and I've worked across enough stacks to know that the right tool matters less than a solid architecture and clear abstractions.",
     "bio_3": "I'm available for senior fullstack roles and freelance projects across Europe. If you're building something with Vue, Nuxt, or Laravel and need someone who ships, let's talk.",
     "quote": "Ship things that matter. Delete everything else.",
@@ -29,7 +29,7 @@
     "img_city": "City",
     "img_nature": "Nature",
     "seo_title": "About — Emerson Nunes · Fullstack Developer",
-    "seo_description": "Fullstack Developer with 5+ years in Vue.js, Nuxt.js and Laravel. Based in Portugal, available for opportunities across Europe."
+    "seo_description": "Fullstack Developer with 8+ years in Vue.js, Nuxt.js and Laravel. Based in Portugal, available for opportunities across Europe."
   },
   "dev": {
     "label": "Portfolio",
@@ -47,7 +47,9 @@
           "Event-driven with Redis queues for async ingestion from all three providers",
           "WebSocket (Laravel Reverb) for real-time updates without polling",
           "OAuth 2.0 with GitHub, Linear and Toggl — complete authorisation flow",
-          "Automatic standup: generates a daily draft with active cycle context"
+          "Automatic standup: generates a daily draft with active cycle context",
+          "Multi-stage Docker build (Alpine) running php-fpm, nginx and workers via supervisord",
+          "GitHub Actions CI/CD: production deploys only fire after lint, tests and Docker build pass"
         ]
       },
       "leadflow": {

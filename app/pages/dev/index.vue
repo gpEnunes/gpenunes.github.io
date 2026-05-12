@@ -105,7 +105,7 @@
     <!-- Stack -->
     <div>
       <h2 class="text-xl font-semibold text-white mb-6">{{ $t('dev.stack_heading') }}</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
         <div
           v-for="tool in stack"
           :key="tool.name"
@@ -153,7 +153,7 @@ const projects = computed(() => [
     description: t('dev.projects.devstats.description'),
     highlights: tm('dev.projects.devstats.highlights').map(i => rt(i)),
     favicon: '/devstats-favicon.svg',
-    tags: ['Laravel 13', 'Nuxt 4', 'TypeScript', 'Redis', 'WebSocket', 'MySQL', 'PHP 8.3', 'Vercel', 'Railway'],
+    tags: ['Laravel 13', 'Nuxt 4', 'TypeScript', 'Redis', 'WebSocket', 'MySQL', 'PHP 8.3', 'Docker', 'GitHub Actions', 'Vercel', 'Railway'],
     url: 'https://devstats.enunes.net',
     privateRepo: true,
     accentColor: '#6366f1',
@@ -173,14 +173,16 @@ const projects = computed(() => [
 ])
 
 const stack = [
-  { icon: 'laravel',    color: 'FF2D20', name: 'Laravel',    type: 'Backend'   },
-  { icon: 'vuedotjs',   color: '4FC08D', name: 'Vue.js',     type: 'Frontend'  },
-  { icon: 'nuxt',       color: '00DC82', name: 'Nuxt',       type: 'Framework' },
-  { icon: 'typescript', color: '3178C6', name: 'TypeScript', type: 'Language'  },
-  { icon: 'mysql',      color: '4479A1', name: 'MySQL',      type: 'Database'  },
-  { icon: 'redis',      color: 'DC382D', name: 'Redis',      type: 'Cache'     },
-  { icon: 'railway',    color: 'ffffff', name: 'Railway',    type: 'DevOps'    },
-  { icon: 'vercel',     color: 'ffffff', name: 'Vercel',     type: 'Hosting'   },
+  { icon: 'laravel',       color: 'FF2D20', name: 'Laravel',        type: 'Backend'   },
+  { icon: 'vuedotjs',      color: '4FC08D', name: 'Vue.js',         type: 'Frontend'  },
+  { icon: 'nuxt',          color: '00DC82', name: 'Nuxt',           type: 'Framework' },
+  { icon: 'typescript',    color: '3178C6', name: 'TypeScript',     type: 'Language'  },
+  { icon: 'mysql',         color: '4479A1', name: 'MySQL',          type: 'Database'  },
+  { icon: 'redis',         color: 'DC382D', name: 'Redis',          type: 'Cache'     },
+  { icon: 'docker',        color: '2496ED', name: 'Docker',         type: 'DevOps'    },
+  { icon: 'githubactions', color: '2088FF', name: 'GitHub Actions', type: 'CI/CD'     },
+  { icon: 'railway',       color: 'ffffff', name: 'Railway',        type: 'DevOps'    },
+  { icon: 'vercel',        color: 'ffffff', name: 'Vercel',         type: 'Hosting'   },
 ]
 
 function openModal(project) {
