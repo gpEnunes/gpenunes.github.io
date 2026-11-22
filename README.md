@@ -2,6 +2,8 @@
 
 Static portfolio for [gpenunes.github.io](https://gpenunes.github.io). Next.js App Router, exported to `out/` and published with GitHub Pages.
 
+Deploy is GitHub Pages only, from `.github/workflows/pages.yml` on pushes to `main`.
+
 ```bash
 npm install
 npm run build
