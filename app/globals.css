@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, 'Times New Roman', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #07080d;
+}
+
+body {
+  margin: 0;
+  background: #07080d;
+  color: #f3efe6;
+}
+
+:focus-visible {
+  outline: 2px solid #f3efe6;
+  outline-offset: 3px;
+}
+
+.scene {
+  height: 260vh;
+  background: #07080d;
+}
+
+.scene-frame {
+  position: sticky;
+  top: 4rem;
+  height: calc(100vh - 4rem);
+  overflow: hidden;
+}
+
+.nav-menu summary {
+  list-style: none;
+}
+
+.nav-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.prose-writing p {
+  margin-top: 1.15rem;
+  color: #d9d3c8;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.prose-writing a {
+  color: #f3efe6;
+  text-decoration: underline;
+}
+
+.prose-writing em {
+  font-style: italic;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scene {
+    height: auto;
+  }
+
+  .scene-frame {
+    position: relative;
+    top: auto;
+    height: 58vh;
+    min-height: 420px;
+  }
+}
